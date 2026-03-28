@@ -1,0 +1,157 @@
+@extends('layouts.design-system')
+
+@section('content')
+    <div class="max-w-5xl mx-auto px-8 py-12 flex flex-col gap-16">
+
+        {{-- TABLE --}}
+        <section class="flex flex-col divide-y divide-gray-100 rounded-2xl border border-gray-100 bg-white shadow-xs overflow-hidden">
+
+            {{-- Header --}}
+            <div class="px-6 py-4 border-b border-gray-100">
+                <span class="text-xs font-medium tracking-widest text-gray-400 uppercase">Table</span>
+                <h2 class="text-sm font-semibold text-gray-800">Table</h2>
+                <p class="text-xs text-gray-400 mt-0.5">Tableau de données avec tri, recherche inline et pagination</p>
+            </div>
+
+            {{-- 01 — Simple --}}
+            <div class="flex items-start gap-8 px-6 py-8">
+                <div class="flex flex-col gap-0.5 w-56 shrink-0">
+                    <code class="text-xs font-medium text-indigo-500">01 — simple</code>
+                    <span class="text-xs text-gray-400">Table basique sans tri ni recherche</span>
+                </div>
+                <div class="flex-1">
+                    <x-table.table
+                        id="table01"
+                        :rows="collect([
+                            ['name' => 'Alice', 'email' => 'alice@example.com', 'role' => 'Admin'],
+                            ['name' => 'Bob',   'email' => 'bob@example.com',   'role' => 'User'],
+                            ['name' => 'Carol', 'email' => 'carol@example.com', 'role' => 'User'],
+                        ])"
+                        :columns="[
+                            ['key' => 'name',  'label' => 'Nom',   'sortable' => false, 'searchable' => false],
+                            ['key' => 'email', 'label' => 'Email', 'sortable' => false, 'searchable' => false],
+                            ['key' => 'role',  'label' => 'Rôle',  'sortable' => false, 'searchable' => false],
+                        ]"
+                    />
+                </div>
+            </div>
+
+            {{-- 02 — Sortable --}}
+            <div class="flex items-start gap-8 px-6 py-8">
+                <div class="flex flex-col gap-0.5 w-56 shrink-0">
+                    <code class="text-xs font-medium text-indigo-500">02 — sortable</code>
+                    <span class="text-xs text-gray-400">Colonnes triables, indépendant du tableau 04</span>
+                </div>
+                <div class="flex-1">
+                    <x-table.table
+                        id="table02"
+                        :rows="collect([
+                            ['name' => 'Alice', 'email' => 'alice@example.com', 'role' => 'Admin'],
+                            ['name' => 'Bob',   'email' => 'bob@example.com',   'role' => 'User'],
+                            ['name' => 'Carol', 'email' => 'carol@example.com', 'role' => 'User'],
+                        ])"
+                        :columns="[
+                            ['key' => 'name',  'label' => 'Nom',   'sortable' => true,  'searchable' => false],
+                            ['key' => 'email', 'label' => 'Email', 'sortable' => true,  'searchable' => false],
+                            ['key' => 'role',  'label' => 'Rôle',  'sortable' => false, 'searchable' => false],
+                        ]"
+                        :current-sort="request('table02_sort', 'email')"
+                        :current-dir="request('table02_dir', 'asc')"
+                    />
+                </div>
+            </div>
+
+            {{-- 03 — Recherche inline --}}
+            <div class="flex items-start gap-8 px-6 py-8">
+                <div class="flex flex-col gap-0.5 w-56 shrink-0">
+                    <code class="text-xs font-medium text-indigo-500">03 — searchable</code>
+                    <span class="text-xs text-gray-400">Recherche inline dans l'en-tête de colonne (Entrée)</span>
+                </div>
+                <div class="flex-1">
+                    <x-table.table
+                        id="table03"
+                        :rows="collect([
+                            ['name' => 'Alice', 'email' => 'alice@example.com', 'role' => 'Admin'],
+                            ['name' => 'Bob',   'email' => 'bob@example.com',   'role' => 'User'],
+                            ['name' => 'Carol', 'email' => 'carol@example.com', 'role' => 'User'],
+                        ])"
+                        :columns="[
+                            ['key' => 'name',  'label' => 'Nom',   'sortable' => true, 'searchable' => true],
+                            ['key' => 'email', 'label' => 'Email', 'sortable' => true, 'searchable' => true],
+                            ['key' => 'role',  'label' => 'Rôle',  'sortable' => false,'searchable' => false],
+                        ]"
+                        :current-sort="request('table03_sort')"
+                        :current-dir="request('table03_dir', 'asc')"
+                    />
+                </div>
+            </div>
+
+            {{-- 04 — Paginator --}}
+            <div class="flex items-start gap-8 px-6 py-8">
+                <div class="flex flex-col gap-0.5 w-56 shrink-0">
+                    <code class="text-xs font-medium text-indigo-500">04 — paginator</code>
+                    <span class="text-xs text-gray-400">Pagination + recherche inline, tri indépendant du tableau 02</span>
+                </div>
+                <div class="flex-1">
+                    @php
+                        $allItems = collect(array_map(fn($i) => [
+                            'name'  => ['Alice','Bob','Carol','David','Eva','Frank','Grace','Hugo','Iris','Jules',
+                                        'Kevin','Laura','Marc','Nina','Olivia','Paul','Quinn','Rose','Sam','Tina',
+                                        'Uma','Victor','Wendy','Xander','Yara','Zoe','Aaron','Bella','Caleb','Diana'][$i],
+                            'email' => strtolower(['Alice','Bob','Carol','David','Eva','Frank','Grace','Hugo','Iris','Jules',
+                                        'Kevin','Laura','Marc','Nina','Olivia','Paul','Quinn','Rose','Sam','Tina',
+                                        'Uma','Victor','Wendy','Xander','Yara','Zoe','Aaron','Bella','Caleb','Diana'][$i]) . '@example.com',
+                            'role'  => $i % 3 === 0 ? 'Admin' : 'User',
+                        ], range(0, 29)));
+
+                        $perPage04   = (int) request('per_page', 10);
+                        $page04      = (int) request('page', 1);
+                        $pageItems04 = $allItems->slice(($page04 - 1) * $perPage04, $perPage04)->values();
+
+                        $paginator04 = new \Illuminate\Pagination\LengthAwarePaginator(
+                            $pageItems04,
+                            $allItems->count(),
+                            $perPage04,
+                            $page04,
+                            ['path' => request()->url(), 'query' => request()->query()]
+                        );
+                    @endphp
+
+                    <x-table.table
+                        id="table04"
+                        :rows="$paginator04"
+                        :columns="[
+                            ['key' => 'name',  'label' => 'Nom',   'sortable' => true,  'searchable' => true],
+                            ['key' => 'email', 'label' => 'Email', 'sortable' => true,  'searchable' => true],
+                            ['key' => 'role',  'label' => 'Rôle',  'sortable' => false, 'searchable' => false],
+                        ]"
+                        :current-sort="request('table04_sort', 'name')"
+                        :current-dir="request('table04_dir', 'asc')"
+                    />
+                </div>
+            </div>
+
+            {{-- 05 — Empty --}}
+            <div class="flex items-start gap-8 px-6 py-8">
+                <div class="flex flex-col gap-0.5 w-56 shrink-0">
+                    <code class="text-xs font-medium text-indigo-500">05 — empty</code>
+                    <span class="text-xs text-gray-400">Aucune donnée — état vide</span>
+                </div>
+                <div class="flex-1">
+                    <x-table.table
+                        id="table05"
+                        :rows="collect([])"
+                        :columns="[
+                            ['key' => 'name',  'label' => 'Nom',   'sortable' => false, 'searchable' => false],
+                            ['key' => 'email', 'label' => 'Email', 'sortable' => false, 'searchable' => false],
+                            ['key' => 'role',  'label' => 'Rôle',  'sortable' => false, 'searchable' => false],
+                        ]"
+                        empty-message="Aucun utilisateur trouvé."
+                    />
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+@endsection
