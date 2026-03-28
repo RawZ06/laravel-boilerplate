@@ -10,38 +10,7 @@
     'required'    => false,
 ])
 
-<div class="flex flex-col gap-1.5" x-data="{
-    open: false,
-    query: '',
-    selected: '{{ $selected }}',
-    selectedLabel: '',
-    options: {{ Js::from($options) }},
-    get filtered() {
-        if (this.query === '') return this.options
-        return this.options.filter(o =>
-            o.label.toLowerCase().includes(this.query.toLowerCase())
-        )
-    },
-    init() {
-        const found = this.options.find(o => o.value == this.selected)
-        if (found) {
-            this.selectedLabel = found.label
-            this.query = found.label
-        }
-    },
-    select(option) {
-        this.selected = option.value
-        this.selectedLabel = option.label
-        this.query = option.label
-        this.open = false
-    },
-    clear() {
-        this.selected = ''
-        this.selectedLabel = ''
-        this.query = ''
-        this.open = false
-    }
-}" @click.outside="open = false; if (!selectedLabel) query = ''">
+<div class="flex flex-col gap-1.5" x-data="autocomplete({ selected: '{{ $selected }}', options: {{ Js::from($options) }} })" @click.outside="open = false; if (!selectedLabel) query = ''">
 
     @if($label)
         <label for="{{ $name }}" class="text-sm font-medium text-gray-700 dark:text-gray-300">

@@ -9,20 +9,7 @@
     'swatches' => ['#6366f1','#8b5cf6','#ec4899','#ef4444','#f97316','#eab308','#22c55e','#14b8a6','#3b82f6','#0f172a','#6b7280','#ffffff'],
 ])
 
-<div class="flex flex-col gap-1.5" x-data="{
-    open: false,
-    selected: '{{ $value }}',
-    custom: '{{ $value }}',
-    swatches: {{ json_encode($swatches) }},
-    pick(color) {
-        this.selected = color
-        this.custom   = color
-    },
-    onCustom(e) {
-        this.selected = e.target.value
-        this.custom   = e.target.value
-    }
-}" @click.outside="open = false">
+<div class="flex flex-col gap-1.5" x-data="color({ selected: '{{ $value }}', swatches: {{ json_encode($swatches) }} })" @click.outside="open = false">
 
     @if($label)
         <label class="text-sm font-medium text-gray-700 dark:text-gray-300">

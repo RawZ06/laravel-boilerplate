@@ -10,21 +10,7 @@
     'required'    => false,
 ])
 
-<div class="flex flex-col gap-1.5" x-data="{
-    open: false,
-    selected: '{{ $selected }}',
-    selectedLabel: '',
-    options: {{ Js::from($options) }},
-    init() {
-        const found = this.options.find(o => o.value == this.selected)
-        if (found) this.selectedLabel = found.label
-    },
-    select(option) {
-        this.selected = option.value
-        this.selectedLabel = option.label
-        this.open = false
-    }
-}" x-init="init()" @click.outside="open = false">
+<div class="flex flex-col gap-1.5" x-data="select({ selected: '{{ $selected }}', options: {{ Js::from($options) }} })" @click.outside="open = false">
 
     @if($label)
         <label class="text-sm font-medium text-gray-700 dark:text-gray-300">
