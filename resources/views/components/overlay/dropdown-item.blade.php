@@ -6,8 +6,8 @@
 
 @php
     $colors = [
-        'default' => 'text-gray-700 hover:bg-gray-50',
-        'danger'  => 'text-red-600 hover:bg-red-50',
+        'default' => 'text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-800',
+        'danger'  => 'text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20',
     ];
     $color = $colors[$variant] ?? $colors['default'];
     $tag = $href ? 'a' : 'button';

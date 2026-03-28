@@ -2,12 +2,12 @@
 
 @php
     $variants = [
-        'gray'    => 'bg-gray-100 text-gray-600',
-        'indigo'  => 'bg-indigo-50 text-indigo-600',
-        'green'   => 'bg-green-50 text-green-600',
-        'red'     => 'bg-red-50 text-red-600',
-        'yellow'  => 'bg-yellow-50 text-yellow-600',
-        'blue'    => 'bg-blue-50 text-blue-600',
+        'gray'    => 'bg-gray-100 text-gray-600 dark:bg-slate-800 dark:text-slate-400',
+        'indigo'  => 'bg-indigo-50 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400',
+        'green'   => 'bg-green-50 text-green-600 dark:bg-emerald-500/10 dark:text-emerald-400',
+        'red'     => 'bg-red-50 text-red-600 dark:bg-rose-500/10 dark:text-rose-400',
+        'yellow'  => 'bg-yellow-50 text-yellow-600 dark:bg-amber-500/10 dark:text-amber-400',
+        'blue'    => 'bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400',
     ];
 
     $sizes = [

@@ -21,7 +21,7 @@
 @endphp
 
 @section('body')
-    <div x-data="{navOpen: window.innerWidth >= 1024}">
+    <div x-data="{navOpen: window.innerWidth >= 1024}" class="min-h-screen">
 
         <!-- SIDEBAR NAV -->
         <nav
@@ -29,7 +29,7 @@
             x-show="navOpen"
             x-on:resize.window="navOpen = window.innerWidth >= 1024"
             @click.outside="navOpen = window.innerWidth >= 1024"
-            class="w-64 fixed z-10 h-full top-0 left-0 bottom-0 bg-slate-800 hidden"
+            class="w-64 fixed z-10 h-full top-0 left-0 bottom-0 bg-slate-800 dark:bg-slate-900 hidden"
             x-transition:enter="transition ease duration-300"
             x-transition:enter-start="opacity-0 -translate-x-full"
             x-transition:enter-end="opacity-100 translate-x-0"
@@ -40,7 +40,7 @@
         >
             <!-- Logo / Brand -->
             <a href="#"
-               class="flex h-12 flex-row gap-2 items-center text-gray-100 p-2 justify-center bg-indigo-800 cursor-pointer">
+               class="flex h-12 flex-row gap-2 items-center text-gray-100 p-2 justify-center bg-indigo-800 dark:bg-indigo-950 cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 245.44 236.61" class="w-10 h-10">
                     <path
                         d="M125.13.06h18.72a3.08,3.08,0,0,1,2.58,1c1.37,1.45,3.57,1.46,5.37,1.5,6.76.14,13.06,2.45,19.35,4.34,3.64,1.1,7.59,1.95,11,4.23,2,1.38,4.58,2.16,6.88,3.27a107.57,107.57,0,0,1,25.4,17.49,108.44,108.44,0,0,1,12.05,12.87c2.44,3,5.43,5.83,6.63,9.78.22.73.34,1.32-.48,1.64a1,1,0,0,1-1.41-.68c-.35-2.44-2.58-3.33-3.93-4.91a128.31,128.31,0,0,0-9.77-10.54,16.92,16.92,0,0,0-5.44-3.75,30.66,30.66,0,0,1-6.48-3.9c-5.14-3.63-10.88-5.93-16.49-8.56-3.75-1.76-7.41-4-11.37-4.93-5.16-1.16-9.84-4.56-15.44-3.63-3.33.55-6.27-1.12-9.46-1.44a84.71,84.71,0,0,0-17.87.4c-3.6.4-7.35.28-10.69,1.74-3.87,1.71-8.19,1.73-12,3.81-2.72,1.49-5.85,2.08-8.72,3.44A127.33,127.33,0,0,0,80,37.73,88.22,88.22,0,0,0,65.9,51.59,93.71,93.71,0,0,0,55.51,67.72,146,146,0,0,0,47.33,88c-2.46,7.18-3.26,14.74-4.95,22.1a38.17,38.17,0,0,0,.55,17.71c.69,2.84,1.09,5.69,1.52,8.56,1.23,8.15,3.86,15.93,6.8,23.54a97,97,0,0,0,10.5,19.54,87.93,87.93,0,0,0,14.31,16.75A108.3,108.3,0,0,0,91.35,207.3c4.5,2.75,9.29,4.88,13.88,7.39a54.56,54.56,0,0,0,8.52,3.23c7.68,2.63,15.69,3.86,23.78,4.87,10.08,1.26,19.92-.31,29.71-1.82a45.6,45.6,0,0,0,13.92-4.29c2.56-1.32,5.41-1.91,8.06-3.18a214.22,214.22,0,0,0,24.48-13.89,43.67,43.67,0,0,0,10.63-10.56c2.51-3.33,5.47-6.41,7.75-9.91,1.58-2.44,4.87-3.53,5.26-6.84,0-.21.47-.5.73-.52.51,0,.67.42.66.86,0,1.28.35,2.7-1.07,3.61a2.13,2.13,0,0,0-.86.85c-3,7.51-8.8,12.93-13.68,19.08-1.83,2.31-3.79,4.49-5.78,6.61s-4.67,3.31-6.85,5.22a95,95,0,0,1-12,9.05c-2.89,1.81-6.13,3.06-9.14,4.68-2.24,1.2-4.44,2.47-6.65,3.69a54.65,54.65,0,0,1-11.09,4.3c-13.61,4-27.43,6.82-41.8,6.88-12.36,0-24.57-.86-36.53-3.76a87.88,87.88,0,0,1-13.67-4.37c-3.47-1.47-7-2.93-10.44-4.48a74.63,74.63,0,0,1-12.39-7.08c-3.38-2.38-6.79-4.7-10.08-7.21-1.63-1.26-3.24-2.58-4.77-3.91A128.44,128.44,0,0,1,24.63,188c-3.91-5-7-10.57-10.35-16-5.08-8.21-7.9-17.3-10.5-26.39A114.59,114.59,0,0,1,.31,125.05c-1.12-11.65,1-23,3.17-34.3A99.3,99.3,0,0,1,9.56,70.6c2.57-6,5.18-12.13,8.8-17.64A125.48,125.48,0,0,1,31.63,35.7,94.66,94.66,0,0,1,47.77,21.82,118.46,118.46,0,0,1,67,11.28c7.27-3.14,14.86-5,22.33-7.37,4-1.25,8.52-.35,12.21-2C105.43.1,109.22.1,113.16,0s8,0,12,0Z"
@@ -67,8 +67,8 @@
                             <a href="{{ !empty($item['route']) ? route($item['route']) : '#' }}"
                                 @class([
                                         'flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors',
-                                        'bg-slate-700 text-white' => !empty($item['route']) && request()->routeIs($item['route'] . '*'),
-                                        'text-gray-100 hover:bg-slate-700' => empty($item['route']) || !request()->routeIs($item['route'] . '*'),
+                                        'bg-slate-700 text-white dark:bg-slate-800' => !empty($item['route']) && request()->routeIs($item['route'] . '*'),
+                                        'text-gray-100 hover:bg-slate-700 dark:hover:bg-slate-800' => empty($item['route']) || !request()->routeIs($item['route'] . '*'),
                                 ])>
                                 <i class="{{ $item['icon'] }} w-4 text-center"></i>
                                 <span>{{ $item['label'] }}</span>
@@ -79,9 +79,9 @@
             </div>
 
             <!-- Footer sidebar -->
-            <div class="absolute bottom-0 left-0 right-0 px-4 py-3 border-t border-slate-700">
+            <div class="absolute bottom-0 left-0 right-0 px-4 py-3 border-t border-slate-700 dark:border-slate-800">
                 <a href="{{ route('design-system.index') }}"
-                   class="flex items-center gap-3 px-3 py-2 rounded-md text-sm text-slate-400 hover:bg-slate-700 hover:text-white transition-colors">
+                   class="flex items-center gap-3 px-3 py-2 rounded-md text-sm text-slate-400 hover:bg-slate-700 dark:hover:bg-slate-800 hover:text-white transition-colors">
                     <i class="fa-solid fa-palette w-4 text-center"></i>
                     <span>Design System</span>
                 </a>
@@ -89,13 +89,13 @@
         </nav>
 
         <!-- MAIN CONTENT -->
-        <main class="flex flex-col relative lg:left-64 lg:w-[calc(100%-16rem)] min-h-screen bg-slate-100">
+        <main class="flex flex-col relative lg:left-64 lg:w-[calc(100%-16rem)] min-h-screen bg-slate-100 dark:bg-slate-950">
 
             <!-- HEADER -->
-            <header id="header" class="h-12 text-xl lg:text-base flex flex-row bg-white shadow-sm">
+            <header id="header" class="h-12 text-xl lg:text-base flex flex-row items-center bg-white dark:bg-slate-900 shadow-sm dark:shadow-slate-800/50">
 
                 <!-- Mobile menu button -->
-                <button @click="navOpen = true" class="lg:hidden px-4 py-2 text-gray-800">
+                <button @click="navOpen = true" class="lg:hidden px-4 py-2 text-gray-800 dark:text-gray-200">
                     <svg class="w-5 h-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                          viewBox="0 0 24 24" stroke="currentColor">
                         <path d="M4 6h16M4 12h16M4 18h16"></path>
@@ -103,11 +103,36 @@
                 </button>
 
                 <!-- User menu -->
-                <div class="flex flex-row ml-auto" x-data="{userMenuOpen: false}">
-                    <div class="relative">
+                <div class="flex flex-row ml-auto items-center h-full">
+                    <div class="flex items-center h-full px-2">
+                        <x-overlay.dropdown align="right">
+                            <x-slot:trigger>
+                                <button type="button" class="w-10 h-10 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors flex items-center justify-center rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 border border-transparent hover:border-gray-200 dark:hover:border-slate-700">
+                                    <i x-show="theme === 'light'" class="fa-solid fa-sun text-lg" x-cloak></i>
+                                    <i x-show="theme === 'dark'" class="fa-solid fa-moon text-lg" x-cloak></i>
+                                    <i x-show="theme === 'system'" class="fa-solid fa-desktop text-lg" x-cloak></i>
+                                </button>
+                            </x-slot:trigger>
+
+                            <x-overlay.dropdown-item @click="setTheme('light')" icon="fa-solid fa-sun">
+                                <span class="flex-1 text-left text-sm">Light</span>
+                                <i x-show="theme === 'light'" class="fa-solid fa-check ml-auto text-indigo-500" x-cloak></i>
+                            </x-overlay.dropdown-item>
+                            <x-overlay.dropdown-item @click="setTheme('dark')" icon="fa-solid fa-moon">
+                                <span class="flex-1 text-left text-sm">Dark</span>
+                                <i x-show="theme === 'dark'" class="fa-solid fa-check ml-auto text-indigo-500" x-cloak></i>
+                            </x-overlay.dropdown-item>
+                            <x-overlay.dropdown-item @click="setTheme('system')" icon="fa-solid fa-desktop">
+                                <span class="flex-1 text-left text-sm">System</span>
+                                <i x-show="theme === 'system'" class="fa-solid fa-check ml-auto text-indigo-500" x-cloak></i>
+                            </x-overlay.dropdown-item>
+                        </x-overlay.dropdown>
+                    </div>
+
+                    <div class="relative h-full flex items-center" x-data="{userMenuOpen: false}">
                         <button @click="userMenuOpen = !userMenuOpen"
-                                class="flex flex-row items-center px-4 py-2 text-gray-800 h-full">
-                            <img class="w-8 h-8 rounded-full bg-gray-300"
+                                class="flex flex-row items-center px-4 py-2 text-gray-800 dark:text-gray-200 h-full">
+                            <img class="w-8 h-8 rounded-full bg-gray-300 dark:bg-gray-700"
                                  src="https://api.dicebear.com/7.x/adventurer/svg?seed=test" alt="User avatar">
                             <span class="ml-2 text-sm">John Doe</span>
                             <svg class="w-4 h-4 ml-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
@@ -128,14 +153,14 @@
                         <div
                             x-show="userMenuOpen"
                             x-init="() => { $el.classList.remove('hidden'); }"
-                            class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20 hidden"
+                            class="absolute right-0 mt-2 py-2 w-48 bg-white dark:bg-slate-800 border dark:border-slate-700 rounded-md shadow-xl z-20 hidden"
                         >
                             <a href="{{route('frontend.home')}}"
-                               class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white transition-colors duration-200">
+                               class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-indigo-600 hover:text-white transition-colors duration-200">
                                 <i class="fa-solid fa-home mr-1"></i> Back to website
                             </a>
                             <a href="#"
-                               class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white transition-colors duration-200">
+                               class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-indigo-600 hover:text-white transition-colors duration-200">
                                 <i class="fa-solid fa-right-from-bracket mr-1"></i> Log out
                             </a>
                         </div>
@@ -156,7 +181,7 @@
             </div>
 
             <!-- FOOTER -->
-            <footer id="footer" class="text-slate-400 text-xs px-3 py-1.5 border-t border-slate-200 mt-2">
+            <footer id="footer" class="text-slate-400 text-xs px-3 py-1.5 border-t border-slate-200 dark:border-slate-800 mt-2">
                 Copyright &copy; 2024 Alexandre. All rights reserved.
             </footer>
         </main>

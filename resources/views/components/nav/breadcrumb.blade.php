@@ -8,14 +8,14 @@
             <li class="flex items-center gap-1">
                 {{-- Séparateur --}}
                 @if($index > 0)
-                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-300 mx-1"></i>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-300 dark:text-slate-700 mx-1"></i>
                 @endif
 
                 {{-- Lien ou texte --}}
                 @if(!$isLast && isset($item['url']))
                     <a
                         href="{{ $item['url'] }}"
-                        class="flex items-center gap-1.5 text-sm text-gray-400 hover:text-gray-700 transition-colors"
+                        class="flex items-center gap-1.5 text-sm text-gray-400 dark:text-slate-500 hover:text-gray-700 dark:hover:text-slate-300 transition-colors"
                     >
                         @if(isset($item['icon']))
                             <i class="{{ $item['icon'] }} text-xs"></i>
@@ -23,7 +23,7 @@
                         {{ $item['label'] }}
                     </a>
                 @else
-                    <span class="flex items-center gap-1.5 text-sm font-medium text-gray-700">
+                    <span class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-slate-300">
                         @if(isset($item['icon']))
                             <i class="{{ $item['icon'] }} text-xs"></i>
                         @endif

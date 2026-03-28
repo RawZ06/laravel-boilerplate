@@ -4,20 +4,20 @@
     <div class="max-w-5xl mx-auto px-8 py-12 flex flex-col gap-16">
 
         {{-- TABLE --}}
-        <section class="flex flex-col divide-y divide-gray-100 rounded-2xl border border-gray-100 bg-white shadow-xs overflow-hidden">
+        <section class="flex flex-col divide-y divide-gray-100 dark:divide-slate-800 rounded-2xl border border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xs overflow-hidden">
 
             {{-- Header --}}
-            <div class="px-6 py-4 border-b border-gray-100">
-                <span class="text-xs font-medium tracking-widest text-gray-400 uppercase">Table</span>
-                <h2 class="text-sm font-semibold text-gray-800">Table</h2>
-                <p class="text-xs text-gray-400 mt-0.5">Data table with sorting, inline search, and pagination</p>
+            <div class="px-6 py-4 border-b border-gray-100 dark:border-slate-800">
+                <span class="text-xs font-medium tracking-widest text-gray-400 dark:text-slate-500 uppercase">Table</span>
+                <h2 class="text-sm font-semibold text-gray-800 dark:text-slate-100">Table</h2>
+                <p class="text-xs text-gray-400 dark:text-slate-500 mt-0.5">Data table with sorting, inline search, and pagination</p>
             </div>
 
             {{-- 01 — Simple --}}
             <div class="flex items-start gap-8 px-6 py-8">
                 <div class="flex flex-col gap-0.5 w-56 shrink-0">
                     <code class="text-xs font-medium text-indigo-500">01 — simple</code>
-                    <span class="text-xs text-gray-400">Basic table without sorting or search</span>
+                    <span class="text-xs text-gray-400 dark:text-slate-500">Basic table without sorting or search</span>
                 </div>
                 <div class="flex-1">
                     <x-table.table
@@ -40,7 +40,7 @@
             <div class="flex items-start gap-8 px-6 py-8">
                 <div class="flex flex-col gap-0.5 w-56 shrink-0">
                     <code class="text-xs font-medium text-indigo-500">02 — sortable</code>
-                    <span class="text-xs text-gray-400">Sortable columns, independent from table 04</span>
+                    <span class="text-xs text-gray-400 dark:text-slate-500">Sortable columns, independent from table 04</span>
                 </div>
                 <div class="flex-1">
                     <x-table.table
@@ -65,7 +65,7 @@
             <div class="flex items-start gap-8 px-6 py-8">
                 <div class="flex flex-col gap-0.5 w-56 shrink-0">
                     <code class="text-xs font-medium text-indigo-500">03 — searchable</code>
-                    <span class="text-xs text-gray-400">Inline search in column header (Enter)</span>
+                    <span class="text-xs text-gray-400 dark:text-slate-500">Inline search in column header (Enter)</span>
                 </div>
                 <div class="flex-1">
                     <x-table.table
@@ -90,7 +90,7 @@
             <div class="flex items-start gap-8 px-6 py-8">
                 <div class="flex flex-col gap-0.5 w-56 shrink-0">
                     <code class="text-xs font-medium text-indigo-500">04 — paginator</code>
-                    <span class="text-xs text-gray-400">Pagination + inline search, independent sorting from table 02</span>
+                    <span class="text-xs text-gray-400 dark:text-slate-500">Pagination + inline search, independent sorting from table 02</span>
                 </div>
                 <div class="flex-1">
                     @php
@@ -135,7 +135,7 @@
             <div class="flex items-start gap-8 px-6 py-8">
                 <div class="flex flex-col gap-0.5 w-56 shrink-0">
                     <code class="text-xs font-medium text-indigo-500">05 — empty</code>
-                    <span class="text-xs text-gray-400">No data — empty state</span>
+                    <span class="text-xs text-gray-400 dark:text-slate-500">No data — empty state</span>
                 </div>
                 <div class="flex-1">
                     <x-table.table

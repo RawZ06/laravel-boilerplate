@@ -26,19 +26,19 @@
                 class="sr-only peer"
             >
             {{-- Track --}}
-            <span class="block w-10 h-6 rounded-full bg-gray-200 peer-checked:bg-indigo-500 transition-colors duration-200 {{ $error ? 'ring-2 ring-rose-300' : '' }}"></span>
+            <span class="block w-10 h-6 rounded-full bg-gray-200 dark:bg-slate-700 peer-checked:bg-indigo-500 transition-colors duration-200 {{ $error ? 'ring-2 ring-rose-300 dark:ring-rose-500/50' : '' }}"></span>
             {{-- Thumb --}}
-            <span class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm transition-transform duration-200 peer-checked:translate-x-4"></span>
+            <span class="absolute left-1 top-1 w-4 h-4 bg-white dark:bg-slate-200 rounded-full shadow-sm transition-transform duration-200 peer-checked:translate-x-4"></span>
         </span>
 
         @if($label)
-            <span class="text-sm font-medium text-gray-700 select-none">{{ $label }}</span>
+            <span class="text-sm font-medium text-gray-700 dark:text-slate-300 select-none">{{ $label }}</span>
         @endif
 
     </label>
 
     @if($hint && !$error)
-        <p class="text-xs text-gray-400">{{ $hint }}</p>
+        <p class="text-xs text-gray-400 dark:text-gray-500">{{ $hint }}</p>
     @endif
 
     @if($error)

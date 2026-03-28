@@ -12,7 +12,7 @@
     @endforeach
 
     <div class="relative">
-        <span class="absolute inset-y-0 left-3 flex items-center pointer-events-none text-gray-400">
+        <span class="absolute inset-y-0 left-3 flex items-center pointer-events-none text-gray-400 dark:text-slate-500">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                       d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
@@ -23,9 +23,9 @@
             name="{{ $name }}"
             value="{{ $value }}"
             placeholder="{{ $placeholder }}"
-            class="pl-9 pr-4 py-2 text-sm rounded-xl border border-gray-200 bg-white shadow-xs
-                   placeholder-gray-400 text-gray-700
-                   focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-400
+            class="pl-9 pr-4 py-2 text-sm rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-xs
+                   placeholder-gray-400 dark:placeholder-slate-500 text-gray-700 dark:text-slate-200
+                   focus:outline-none focus:ring-2 focus:ring-indigo-300 dark:focus:ring-indigo-500/30 focus:border-indigo-400 dark:focus:border-indigo-500
                    transition w-64"
         >
     </div>

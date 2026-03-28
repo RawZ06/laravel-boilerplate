@@ -47,18 +47,18 @@
         x-cloak
     >
         <div
-            class="relative w-full {{ $maxWidth }} bg-white rounded-2xl shadow-xl flex flex-col overflow-hidden"
+            class="relative w-full {{ $maxWidth }} bg-white dark:bg-slate-900 rounded-2xl shadow-xl flex flex-col overflow-hidden"
             @click.stop
         >
             {{-- Header --}}
             @isset($header)
-                <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+                <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-slate-800">
                     <div class="flex flex-col gap-0.5">
                         {{ $header }}
                     </div>
                     <button
                         @click="open = false"
-                        class="text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
+                        class="text-gray-400 dark:text-slate-500 hover:text-gray-600 dark:hover:text-slate-300 transition-colors cursor-pointer"
                     >
                         <i class="fa-solid fa-xmark text-sm"></i>
                     </button>
@@ -72,7 +72,7 @@
 
             {{-- Footer --}}
             @isset($footer)
-                <div class="flex items-center justify-end gap-2 px-6 py-4 border-t border-gray-100 bg-gray-50">
+                <div class="flex items-center justify-end gap-2 px-6 py-4 border-t border-gray-100 dark:border-slate-800 bg-gray-50 dark:bg-slate-900">
                     {{ $footer }}
                 </div>
             @endisset

@@ -47,12 +47,12 @@
             x-transition:leave="transition ease-in duration-200"
             x-transition:leave-start="opacity-100 translate-y-0 scale-100"
             x-transition:leave-end="opacity-0 translate-y-2 scale-95"
-            class="flex items-start gap-3 px-4 py-3 rounded-xl shadow-lg border bg-white w-80"
+            class="flex items-start gap-3 px-4 py-3 rounded-xl shadow-lg border bg-white dark:bg-slate-900 w-80"
             :class="{
-                'border-blue-200':   toast.variant === 'info',
-                'border-green-200':  toast.variant === 'success',
-                'border-yellow-200': toast.variant === 'warning',
-                'border-red-200':    toast.variant === 'error',
+                'border-blue-200 dark:border-blue-500/30':   toast.variant === 'info',
+                'border-green-200 dark:border-emerald-500/30':  toast.variant === 'success',
+                'border-yellow-200 dark:border-amber-500/30': toast.variant === 'warning',
+                'border-red-200 dark:border-rose-500/30':    toast.variant === 'error',
             }"
         >
             {{-- Icon --}}
@@ -78,8 +78,8 @@
 
             {{-- Content --}}
             <div class="flex-1 flex flex-col gap-0.5">
-                <p x-show="toast.title" x-text="toast.title" class="text-sm font-semibold text-gray-800"></p>
-                <p x-text="toast.message" class="text-sm text-gray-500"></p>
+                <p x-show="toast.title" x-text="toast.title" class="text-sm font-semibold text-gray-800 dark:text-slate-200"></p>
+                <p x-text="toast.message" class="text-sm text-gray-500 dark:text-slate-400"></p>
             </div>
 
             {{-- Close --}}

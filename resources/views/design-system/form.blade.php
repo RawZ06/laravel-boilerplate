@@ -9,17 +9,17 @@
         <section class="flex flex-col gap-6">
             <div class="flex flex-col gap-1">
                 <span class="text-xs font-medium tracking-widest text-gray-400 uppercase">01</span>
-                <h2 class="text-xl font-semibold text-gray-900 tracking-tight">Input</h2>
-                <p class="text-sm text-gray-400">Prop <code
-                        class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600 text-xs">type</code> — text, email,
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-slate-100 tracking-tight">Input</h2>
+                <p class="text-sm text-gray-400 dark:text-slate-500">Prop <code
+                        class="bg-gray-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-gray-600 dark:text-slate-400 text-xs">type</code> — text, email,
                     password, number…</p>
             </div>
 
-            <div class="rounded-2xl border border-gray-100 bg-white shadow-xs divide-y divide-gray-50">
+            <div class="rounded-2xl border border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xs divide-y divide-gray-50 dark:divide-slate-800">
                 <div class="flex items-start justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">type="text"</code>
-                        <span class="text-xs text-gray-400">Standard text field</span>
+                        <span class="text-xs text-gray-400 dark:text-slate-500">Standard text field</span>
                     </div>
                     <div class="flex-1">
                         <x-form.input name="ex_text" placeholder="Your name"/>
@@ -39,7 +39,7 @@
                 <div class="flex items-start justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">:error="..."</code>
-                        <span class="text-xs text-gray-400">Error state</span>
+                        <span class="text-xs text-gray-400 dark:text-slate-500">Error state</span>
                     </div>
                     <div class="flex-1">
                         <x-form.input name="ex_err" label="Email" error="This address is already in use."
@@ -62,13 +62,13 @@
         <section class="flex flex-col gap-6">
             <div class="flex flex-col gap-1">
                 <span class="text-xs font-medium tracking-widest text-gray-400 uppercase">02</span>
-                <h2 class="text-xl font-semibold text-gray-900 tracking-tight">Textarea</h2>
-                <p class="text-sm text-gray-400">Props <code
-                        class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600 text-xs">rows</code> and <code
-                        class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600 text-xs">resize</code>.</p>
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-slate-100 tracking-tight">Textarea</h2>
+                <p class="text-sm text-gray-400 dark:text-slate-500">Props <code
+                        class="bg-gray-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-gray-600 dark:text-slate-400 text-xs">rows</code> and <code
+                        class="bg-gray-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-gray-600 dark:text-slate-400 text-xs">resize</code>.</p>
             </div>
 
-            <div class="rounded-2xl border border-gray-100 bg-white shadow-xs divide-y divide-gray-50">
+            <div class="rounded-2xl border border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xs divide-y divide-gray-50 dark:divide-slate-800">
                 <div class="flex items-start justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">default</code>
@@ -95,11 +95,11 @@
         <section class="flex flex-col gap-6">
             <div class="flex flex-col gap-1">
                 <span class="text-xs font-medium tracking-widest text-gray-400 uppercase">03</span>
-                <h2 class="text-xl font-semibold text-gray-900 tracking-tight">Toggle</h2>
-                <p class="text-sm text-gray-400">Prop <code class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600 text-xs">checked</code> · <code class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600 text-xs">disabled</code> · <code class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600 text-xs">hint</code></p>
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-slate-100 tracking-tight">Toggle</h2>
+                <p class="text-sm text-gray-400 dark:text-slate-500">Prop <code class="bg-gray-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-gray-600 dark:text-slate-400 text-xs">checked</code> · <code class="bg-gray-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-gray-600 dark:text-slate-400 text-xs">disabled</code> · <code class="bg-gray-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-gray-600 dark:text-slate-400 text-xs">hint</code></p>
             </div>
 
-            <div class="rounded-2xl border border-gray-100 bg-white shadow-xs divide-y divide-gray-50">
+            <div class="rounded-2xl border border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xs divide-y divide-gray-50 dark:divide-slate-800">
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">default</code>
@@ -117,7 +117,7 @@
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">:disabled="true"</code>
-                        <span class="text-xs text-gray-400">Disabled</span>
+                        <span class="text-xs text-gray-400 dark:text-slate-500">Disabled</span>
                     </div>
                     <x-form.toggle name="ex_toggle3" label="Locked option" :disabled="true" :checked="true" />
                 </div>
@@ -128,11 +128,11 @@
         <section class="flex flex-col gap-6">
             <div class="flex flex-col gap-1">
                 <span class="text-xs font-medium tracking-widest text-gray-400 uppercase">04</span>
-                <h2 class="text-lg font-semibold text-gray-800">Checkbox</h2>
-                <p class="text-sm text-gray-400">Props <code class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600 text-xs">checked</code> · <code class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600 text-xs">disabled</code> · <code class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600 text-xs">hint</code> · <code class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600 text-xs">error</code></p>
+                <h2 class="text-lg font-semibold text-gray-800 dark:text-slate-100">Checkbox</h2>
+                <p class="text-sm text-gray-400 dark:text-slate-500">Props <code class="bg-gray-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-gray-600 dark:text-slate-400 text-xs">checked</code> · <code class="bg-gray-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-gray-600 dark:text-slate-400 text-xs">disabled</code> · <code class="bg-gray-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-gray-600 dark:text-slate-400 text-xs">hint</code> · <code class="bg-gray-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-gray-600 dark:text-slate-400 text-xs">error</code></p>
             </div>
 
-            <div class="rounded-2xl border border-gray-100 bg-white shadow-xs divide-y divide-gray-50">
+            <div class="rounded-2xl border border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xs divide-y divide-gray-50 dark:divide-slate-800">
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">default</code>
@@ -150,14 +150,14 @@
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">error</code>
-                        <span class="text-xs text-gray-400">Error state</span>
+                        <span class="text-xs text-gray-400 dark:text-slate-500">Error state</span>
                     </div>
                     <x-form.checkbox name="ex_checkbox3" label="I accept the terms" error="You must accept the terms." />
                 </div>
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">:disabled="true"</code>
-                        <span class="text-xs text-gray-400">Disabled</span>
+                        <span class="text-xs text-gray-400 dark:text-slate-500">Disabled</span>
                     </div>
                     <x-form.checkbox name="ex_checkbox4" label="Locked option" :disabled="true" :checked="true" />
                 </div>
@@ -168,11 +168,11 @@
         <section class="flex flex-col gap-6">
             <div class="flex flex-col gap-1">
                 <span class="text-xs font-medium tracking-widest text-gray-400 uppercase">05</span>
-                <h2 class="text-lg font-semibold text-gray-800">Radio</h2>
-                <p class="text-sm text-gray-400">Props <code class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600 text-xs">checked</code> · <code class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600 text-xs">disabled</code> · <code class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600 text-xs">hint</code> · <code class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600 text-xs">error</code></p>
+                <h2 class="text-lg font-semibold text-gray-800 dark:text-slate-100">Radio</h2>
+                <p class="text-sm text-gray-400 dark:text-slate-500">Props <code class="bg-gray-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-gray-600 dark:text-slate-400 text-xs">checked</code> · <code class="bg-gray-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-gray-600 dark:text-slate-400 text-xs">disabled</code> · <code class="bg-gray-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-gray-600 dark:text-slate-400 text-xs">hint</code> · <code class="bg-gray-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-gray-600 dark:text-slate-400 text-xs">error</code></p>
             </div>
 
-            <div class="rounded-2xl border border-gray-100 bg-white shadow-xs divide-y divide-gray-50">
+            <div class="rounded-2xl border border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xs divide-y divide-gray-50 dark:divide-slate-800">
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">default</code>
@@ -194,14 +194,14 @@
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">error</code>
-                        <span class="text-xs text-gray-400">Error state</span>
+                        <span class="text-xs text-gray-400 dark:text-slate-500">Error state</span>
                     </div>
                     <x-form.radio name="ex_radio3" value="a" label="Option A" error="Please select an option." />
                 </div>
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">:disabled="true"</code>
-                        <span class="text-xs text-gray-400">Disabled</span>
+                        <span class="text-xs text-gray-400 dark:text-slate-500">Disabled</span>
                     </div>
                     <x-form.radio name="ex_radio4" value="a" label="Locked option" :disabled="true" :checked="true" />
                 </div>
@@ -212,15 +212,15 @@
         <section class="flex flex-col gap-6">
             <div class="flex flex-col gap-1">
                 <span class="text-xs font-medium tracking-widest text-gray-400 uppercase">06</span>
-                <h2 class="text-lg font-semibold text-gray-800">Select</h2>
-                <p class="text-sm text-gray-400">Dropdown custom · Props <code class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600 text-xs">options</code> · <code class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600 text-xs">selected</code> · <code class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600 text-xs">disabled</code> · <code class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600 text-xs">error</code></p>
+                <h2 class="text-lg font-semibold text-gray-800 dark:text-slate-100">Select</h2>
+                <p class="text-sm text-gray-400 dark:text-slate-500">Dropdown custom · Props <code class="bg-gray-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-gray-600 dark:text-slate-400 text-xs">options</code> · <code class="bg-gray-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-gray-600 dark:text-slate-400 text-xs">selected</code> · <code class="bg-gray-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-gray-600 dark:text-slate-400 text-xs">disabled</code> · <code class="bg-gray-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-gray-600 dark:text-slate-400 text-xs">error</code></p>
             </div>
 
-            <div class="rounded-2xl border border-gray-100 bg-white shadow-xs divide-y divide-gray-50">
+            <div class="rounded-2xl border border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xs divide-y divide-gray-50 dark:divide-slate-800">
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">default</code>
-                        <span class="text-xs text-gray-400">No selection</span>
+                        <span class="text-xs text-gray-400 dark:text-slate-500">No selection</span>
                     </div>
                     <div class="w-72">
                         <x-form.select name="ex_select1" label="Country" placeholder="Choose a country..."
@@ -253,7 +253,7 @@
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">error</code>
-                        <span class="text-xs text-gray-400">Error state</span>
+                        <span class="text-xs text-gray-400 dark:text-slate-500">Error state</span>
                     </div>
                     <div class="w-72">
                         <x-form.select name="ex_select3" label="Category" error="Please select a category."
@@ -268,7 +268,7 @@
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">:disabled="true"</code>
-                        <span class="text-xs text-gray-400">Disabled</span>
+                        <span class="text-xs text-gray-400 dark:text-slate-500">Disabled</span>
                     </div>
                     <div class="w-72">
                         <x-form.select name="ex_select4" label="Country" selected="fr" :disabled="true"
@@ -284,16 +284,16 @@
 
         {{-- 07· Autocomplete --}}
         <section class="flex flex-col gap-6">
-            <div class="px-6 py-4 border-b border-gray-100">
+            <div class="px-6 py-4 border-b border-gray-100 dark:border-slate-800">
                 <span class="text-xs font-medium tracking-widest text-gray-400 uppercase">07</span>
-                <h2 class="text-lg font-semibold text-gray-800">Autocomplete</h2>
-                <p class="text-sm text-gray-400 mt-0.5">Selection with input filtering</p>
+                <h2 class="text-lg font-semibold text-gray-800 dark:text-slate-100">Autocomplete</h2>
+                <p class="text-sm text-gray-400 dark:text-slate-500 mt-0.5">Selection with input filtering</p>
             </div>
-            <div class="rounded-2xl border border-gray-100 bg-white shadow-xs divide-y divide-gray-50">
+            <div class="rounded-2xl border border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xs divide-y divide-gray-50 dark:divide-slate-800">
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">default</code>
-                        <span class="text-xs text-gray-400">No selection</span>
+                        <span class="text-xs text-gray-400 dark:text-slate-500">No selection</span>
                     </div>
                     <div class="w-72">
                         <x-form.autocomplete
@@ -334,7 +334,7 @@
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">error</code>
-                        <span class="text-xs text-gray-400">Error state</span>
+                        <span class="text-xs text-gray-400 dark:text-slate-500">Error state</span>
                     </div>
                     <div class="w-72">
                         <x-form.autocomplete
@@ -353,7 +353,7 @@
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">:disabled="true"</code>
-                        <span class="text-xs text-gray-400">Disabled</span>
+                        <span class="text-xs text-gray-400 dark:text-slate-500">Disabled</span>
                     </div>
                     <div class="w-72">
                         <x-form.autocomplete
@@ -373,16 +373,16 @@
 
         {{-- 08· Date --}}
         <section class="flex flex-col gap-6">
-            <div class="px-6 py-4 border-b border-gray-100">
+            <div class="px-6 py-4 border-b border-gray-100 dark:border-slate-800">
                 <span class="text-xs font-medium tracking-widest text-gray-400 uppercase">08</span>
-                <h2 class="text-lg font-semibold text-gray-800">Date</h2>
-                <p class="text-sm text-gray-400 mt-0.5">Date picker with custom calendar</p>
+                <h2 class="text-lg font-semibold text-gray-800 dark:text-slate-100">Date</h2>
+                <p class="text-sm text-gray-400 dark:text-slate-500 mt-0.5">Date picker with custom calendar</p>
             </div>
-            <div class="rounded-2xl border border-gray-100 bg-white shadow-xs divide-y divide-gray-50">
+            <div class="rounded-2xl border border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xs divide-y divide-gray-50 dark:divide-slate-800">
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">default</code>
-                        <span class="text-xs text-gray-400">No date</span>
+                        <span class="text-xs text-gray-400 dark:text-slate-500">No date</span>
                     </div>
                     <div class="w-72">
                         <x-form.date name="ex_date1" label="Date of birth" />
@@ -400,7 +400,7 @@
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">error</code>
-                        <span class="text-xs text-gray-400">Error state</span>
+                        <span class="text-xs text-gray-400 dark:text-slate-500">Error state</span>
                     </div>
                     <div class="w-72">
                         <x-form.date name="ex_date3" label="Expiration date" error="The date is invalid." />
@@ -409,7 +409,7 @@
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">:disabled="true"</code>
-                        <span class="text-xs text-gray-400">Disabled</span>
+                        <span class="text-xs text-gray-400 dark:text-slate-500">Disabled</span>
                     </div>
                     <div class="w-72">
                         <x-form.date name="ex_date4" label="Date" value="2024-01-01" :disabled="true" />
@@ -422,11 +422,11 @@
         <section class="flex flex-col gap-6">
             <div class="flex flex-col gap-1">
                 <span class="text-xs font-medium tracking-widest text-gray-400 uppercase">09</span>
-                <h2 class="text-xl font-semibold text-gray-900 tracking-tight">Color</h2>
-                <p class="text-sm text-gray-400">Props <code class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600 text-xs">swatches</code> et <code class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600 text-xs">value</code>.</p>
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-slate-100 tracking-tight">Color</h2>
+                <p class="text-sm text-gray-400 dark:text-slate-500">Props <code class="bg-gray-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-gray-600 dark:text-slate-400 text-xs">swatches</code> et <code class="bg-gray-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-gray-600 dark:text-slate-400 text-xs">value</code>.</p>
             </div>
 
-            <div class="rounded-2xl border border-gray-100 bg-white shadow-xs divide-y divide-gray-50">
+            <div class="rounded-2xl border border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xs divide-y divide-gray-50 dark:divide-slate-800">
                 <div class="flex items-start justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">default</code>

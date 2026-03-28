@@ -12,7 +12,7 @@
     @if($label)
         <label
             @if($name) for="{{ $name }}" @endif
-        class="text-sm font-medium text-gray-700"
+        class="text-sm font-medium text-gray-700 dark:text-gray-300"
         >
             {{ $label }}
             @if($required)
@@ -29,7 +29,7 @@
             {{ $error }}
         </p>
     @elseif($hint)
-        <p class="text-xs text-gray-400">{{ $hint }}</p>
+        <p class="text-xs text-gray-400 dark:text-gray-500">{{ $hint }}</p>
     @endif
 
 </div>

@@ -17,7 +17,7 @@
 
     @yield('head')
 </head>
-<body>
+<body x-data="themeHandler" class="text-black dark:text-gray-200">
 @yield('body')
 </body>
 </html>
