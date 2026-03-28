@@ -129,42 +129,27 @@
                         </x-overlay.dropdown>
                     </div>
 
-                    <div class="relative h-full flex items-center" x-data="{userMenuOpen: false}">
-                        <button @click="userMenuOpen = !userMenuOpen"
-                                class="flex flex-row items-center px-4 py-2 text-gray-800 dark:text-gray-200 h-full">
-                            <img class="w-8 h-8 rounded-full bg-gray-300 dark:bg-gray-700"
-                                 src="https://api.dicebear.com/7.x/adventurer/svg?seed=test" alt="User avatar">
-                            <span class="ml-2 text-sm">John Doe</span>
-                            <svg class="w-4 h-4 ml-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                                 stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                                <path d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
+                    <x-overlay.dropdown align="right">
+                        <x-slot:trigger>
+                            <button class="flex flex-row items-center px-4 py-2 text-gray-800 dark:text-gray-200 h-full">
+                                <img class="w-8 h-8 rounded-full bg-gray-300 dark:bg-gray-700"
+                                     src="https://api.dicebear.com/7.x/adventurer/svg?seed=test" alt="User avatar">
+                                <span class="ml-2 text-sm">John Doe</span>
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                                     stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                        </x-slot:trigger>
 
-                        <!-- Backdrop -->
-                        <div
-                            x-show="userMenuOpen"
-                            @click="userMenuOpen = false"
-                            x-init="() => { $el.classList.remove('hidden'); }"
-                            class="fixed inset-0 h-full w-full z-10 hidden"
-                        ></div>
+                        <x-overlay.dropdown-item :href="route('frontend.home')" icon="fa-solid fa-home">
+                            Back to website
+                        </x-overlay.dropdown-item>
 
-                        <!-- Dropdown -->
-                        <div
-                            x-show="userMenuOpen"
-                            x-init="() => { $el.classList.remove('hidden'); }"
-                            class="absolute right-0 mt-2 py-2 w-48 bg-white dark:bg-slate-800 border dark:border-slate-700 rounded-md shadow-xl z-20 hidden"
-                        >
-                            <a href="{{route('frontend.home')}}"
-                               class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-indigo-600 hover:text-white transition-colors duration-200">
-                                <i class="fa-solid fa-home mr-1"></i> Back to website
-                            </a>
-                            <a href="#"
-                               class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-indigo-600 hover:text-white transition-colors duration-200">
-                                <i class="fa-solid fa-right-from-bracket mr-1"></i> Log out
-                            </a>
-                        </div>
-                    </div>
+                        <x-overlay.dropdown-item href="#" icon="fa-solid fa-right-from-bracket">
+                            Log out
+                        </x-overlay.dropdown-item>
+                    </x-overlay.dropdown>
                 </div>
             </header>
 
