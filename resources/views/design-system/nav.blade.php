@@ -9,61 +9,61 @@
             <div class="px-6 py-4">
                 <span class="text-xs font-medium tracking-widest text-gray-400 uppercase">01</span>
                 <h2 class="text-sm font-semibold text-gray-800">Breadcrumb</h2>
-                <p class="text-xs text-gray-400 mt-0.5">Fil d'Ariane et navigation hiérarchique</p>
+                <p class="text-xs text-gray-400 mt-0.5">Breadcrumb and hierarchical navigation</p>
             </div>
 
-            {{-- 01 — Basique --}}
+            {{-- 01 — Basic --}}
             <div class="flex items-start gap-8 px-6 py-8">
                 <div class="flex flex-col gap-0.5 w-56 shrink-0">
-                    <code class="text-xs font-medium text-indigo-500">01 — basique</code>
-                    <span class="text-xs text-gray-400">Liens simples</span>
+                    <code class="text-xs font-medium text-indigo-500">01 — basic</code>
+                    <span class="text-xs text-gray-400">Simple links</span>
                 </div>
                 <x-nav.breadcrumb :items="[
-                ['label' => 'Accueil', 'url' => '#'],
-                ['label' => 'Paramètres', 'url' => '#'],
-                ['label' => 'Profil'],
+                ['label' => 'Home', 'url' => '#'],
+                ['label' => 'Settings', 'url' => '#'],
+                ['label' => 'Profile'],
             ]" />
             </div>
 
-            {{-- 02 — Avec icône --}}
-            <div class="flex items-start gap-8 px-6 py-8">
-                <div class="flex flex-col gap-0.5 w-56 shrink-0">
-                    <code class="text-xs font-medium text-indigo-500">02 — avec icône</code>
-                    <span class="text-xs text-gray-400">Icône sur le premier élément</span>
+                {{-- 02 — With icon --}}
+                <div class="flex items-start gap-8 px-6 py-8">
+                    <div class="flex flex-col gap-0.5 w-56 shrink-0">
+                        <code class="text-xs font-medium text-indigo-500">02 — with icon</code>
+                        <span class="text-xs text-gray-400">Icon on the first element</span>
+                    </div>
+                    <x-nav.breadcrumb :items="[
+                    ['label' => 'Home', 'url' => '#', 'icon' => 'fa-solid fa-house'],
+                    ['label' => 'Projects', 'url' => '#'],
+                    ['label' => 'Design System', 'url' => '#'],
+                    ['label' => 'Navigation'],
+                ]" />
                 </div>
-                <x-nav.breadcrumb :items="[
-                ['label' => 'Accueil', 'url' => '#', 'icon' => 'fa-solid fa-house'],
-                ['label' => 'Projets', 'url' => '#'],
-                ['label' => 'Design System', 'url' => '#'],
-                ['label' => 'Navigation'],
-            ]" />
-            </div>
 
-            {{-- 03 — Un seul niveau --}}
-            <div class="flex items-start gap-8 px-6 py-8">
-                <div class="flex flex-col gap-0.5 w-56 shrink-0">
-                    <code class="text-xs font-medium text-indigo-500">03 — un seul niveau</code>
-                    <span class="text-xs text-gray-400">Page racine</span>
+                {{-- 03 — Single level --}}
+                <div class="flex items-start gap-8 px-6 py-8">
+                    <div class="flex flex-col gap-0.5 w-56 shrink-0">
+                        <code class="text-xs font-medium text-indigo-500">03 — single level</code>
+                        <span class="text-xs text-gray-400">Root page</span>
+                    </div>
+                    <x-nav.breadcrumb :items="[
+                    ['label' => 'Dashboard', 'icon' => 'fa-solid fa-house'],
+                ]" />
                 </div>
-                <x-nav.breadcrumb :items="[
-                ['label' => 'Dashboard', 'icon' => 'fa-solid fa-house'],
-            ]" />
-            </div>
 
-            {{-- 04 — Chemin long --}}
-            <div class="flex items-start gap-8 px-6 py-8">
-                <div class="flex flex-col gap-0.5 w-56 shrink-0">
-                    <code class="text-xs font-medium text-indigo-500">04 — chemin long</code>
-                    <span class="text-xs text-gray-400">Plusieurs niveaux</span>
+                {{-- 04 — Long path --}}
+                <div class="flex items-start gap-8 px-6 py-8">
+                    <div class="flex flex-col gap-0.5 w-56 shrink-0">
+                        <code class="text-xs font-medium text-indigo-500">04 — long path</code>
+                        <span class="text-xs text-gray-400">Multiple levels</span>
+                    </div>
+                    <x-nav.breadcrumb :items="[
+                    ['label' => 'Home', 'url' => '#', 'icon' => 'fa-solid fa-house'],
+                    ['label' => 'Organization', 'url' => '#'],
+                    ['label' => 'Teams', 'url' => '#'],
+                    ['label' => 'Frontend', 'url' => '#'],
+                    ['label' => 'John Doe'],
+                ]" />
                 </div>
-                <x-nav.breadcrumb :items="[
-                ['label' => 'Accueil', 'url' => '#', 'icon' => 'fa-solid fa-house'],
-                ['label' => 'Organisation', 'url' => '#'],
-                ['label' => 'Équipes', 'url' => '#'],
-                ['label' => 'Frontend', 'url' => '#'],
-                ['label' => 'Jean Dupont'],
-            ]" />
-            </div>
 
         </section>
 

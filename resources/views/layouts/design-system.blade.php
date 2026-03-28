@@ -16,10 +16,10 @@
 
                 @php
                     $navItems = [
-                        'Fondations' => [
-                            ['label' => 'Accueil',    'route' => 'design-system.index',   'icon' => 'fa-solid fa-house'],
+                        'Foundations' => [
+                            ['label' => 'Home',    'route' => 'design-system.index',   'icon' => 'fa-solid fa-house'],
                         ],
-                        'Composants' => [
+                        'Components' => [
                             ['label' => 'Buttons',    'route' => 'design-system.buttons', 'icon' => 'fa-solid fa-computer-mouse'],
                             ['label' => 'Form',       'route' => 'design-system.form',    'icon' => 'fa-solid fa-pen-to-square'],
                             ['label' => 'Table',       'route' => 'design-system.table',    'icon' => 'fa-solid fa-table'],

@@ -1,4 +1,4 @@
-{{-- resources/views/design-system/buttons.blade.php --}}
+{{-- resources/views/design-system/overlay.blade.php --}}
 
 @extends('layouts.design-system')
 
@@ -11,35 +11,35 @@
                 <div class="px-6 py-4">
                     <span class="text-xs font-medium tracking-widest text-gray-400 uppercase">01</span>
                     <h2 class="text-sm font-semibold text-gray-800">Modal</h2>
-                    <p class="text-xs text-gray-400 mt-0.5">Fenêtres de dialogue et de confirmation</p>
+                    <p class="text-xs text-gray-400 mt-0.5">Dialog and confirmation windows</p>
                 </div>
 
-                {{-- 01 — Basique --}}
+                {{-- 01 — Basic --}}
                 <div class="flex items-start gap-8 px-6 py-8">
                     <div class="flex flex-col gap-0.5 w-56 shrink-0">
-                        <code class="text-xs font-medium text-indigo-500">01 — basique</code>
+                        <code class="text-xs font-medium text-indigo-500">01 — basic</code>
                         <span class="text-xs text-gray-400">Header + body + footer</span>
                     </div>
                     <div>
                         <x-overlay.modal name="demo-basic" size="md">
                             <x-slot:trigger>
                                 <x-button onclick="window.dispatchEvent(new CustomEvent('open-modal', { detail: 'demo-basic' }))">
-                                    Ouvrir la modal
+                                    Open modal
                                 </x-button>
                             </x-slot:trigger>
 
                             <x-slot:header>
-                                <p class="text-sm font-semibold text-gray-800">Titre de la modal</p>
-                                <p class="text-xs text-gray-400">Sous-titre optionnel</p>
+                                <p class="text-sm font-semibold text-gray-800">Modal title</p>
+                                <p class="text-xs text-gray-400">Optional subtitle</p>
                             </x-slot:header>
 
-                            <p class="text-sm text-gray-600">Contenu de la modal. Vous pouvez y mettre n'importe quel contenu HTML, formulaire, texte, etc.</p>
+                            <p class="text-sm text-gray-600">Modal content. You can put any HTML content, form, text, etc. here.</p>
 
                             <x-slot:footer>
                                 <x-button variant="ghost" onclick="window.dispatchEvent(new CustomEvent('close-modal', { detail: 'demo-basic' }))">
-                                    Annuler
+                                    Cancel
                                 </x-button>
-                                <x-button variant="primary">Confirmer</x-button>
+                                <x-button variant="primary">Confirm</x-button>
                             </x-slot:footer>
                         </x-overlay.modal>
                     </div>
@@ -48,42 +48,42 @@
                 {{-- 02 — Confirmation danger --}}
                 <div class="flex items-start gap-8 px-6 py-8">
                     <div class="flex flex-col gap-0.5 w-56 shrink-0">
-                        <code class="text-xs font-medium text-indigo-500">02 — confirmation danger</code>
-                        <span class="text-xs text-gray-400">Action destructive</span>
+                        <code class="text-xs font-medium text-indigo-500">02 — danger confirmation</code>
+                        <span class="text-xs text-gray-400">Destructive action</span>
                     </div>
                     <div>
                         <x-overlay.modal name="demo-danger" size="sm">
                             <x-slot:trigger>
                                 <x-button variant="danger" onclick="window.dispatchEvent(new CustomEvent('open-modal', { detail: 'demo-danger' }))">
-                                    Supprimer
+                                    Delete
                                 </x-button>
                             </x-slot:trigger>
 
                             <x-slot:header>
-                                <p class="text-sm font-semibold text-gray-800">Supprimer l'élément</p>
+                                <p class="text-sm font-semibold text-gray-800">Delete element</p>
                             </x-slot:header>
 
                             <div class="flex flex-col gap-3">
                                 <div class="flex items-center justify-center w-12 h-12 rounded-full bg-red-50 mx-auto">
                                     <i class="fa-solid fa-trash text-red-500"></i>
                                 </div>
-                                <p class="text-sm text-gray-600 text-center">Cette action est irréversible. Êtes-vous sûr de vouloir supprimer cet élément ?</p>
+                                <p class="text-sm text-gray-600 text-center">This action is irreversible. Are you sure you want to delete this element?</p>
                             </div>
 
                             <x-slot:footer>
                                 <x-button variant="ghost" onclick="window.dispatchEvent(new CustomEvent('close-modal', { detail: 'demo-danger' }))">
-                                    Annuler
+                                    Cancel
                                 </x-button>
-                                <x-button variant="danger">Supprimer</x-button>
+                                <x-button variant="danger">Delete</x-button>
                             </x-slot:footer>
                         </x-overlay.modal>
                     </div>
                 </div>
 
-                {{-- 03 — Tailles --}}
+                {{-- 03 — Sizes --}}
                 <div class="flex items-start gap-8 px-6 py-8">
                     <div class="flex flex-col gap-0.5 w-56 shrink-0">
-                        <code class="text-xs font-medium text-indigo-500">03 — tailles</code>
+                        <code class="text-xs font-medium text-indigo-500">03 — sizes</code>
                         <span class="text-xs text-gray-400">sm, md, lg, xl</span>
                     </div>
                     <div class="flex flex-wrap gap-2">
@@ -99,11 +99,11 @@
                                     <p class="text-sm font-semibold text-gray-800">Modal size={{ $s }}</p>
                                 </x-slot:header>
 
-                                <p class="text-sm text-gray-600">Contenu d'une modal de taille <strong>{{ $s }}</strong>.</p>
+                                <p class="text-sm text-gray-600">Content for a <strong>{{ $s }}</strong> size modal.</p>
 
                                 <x-slot:footer>
                                     <x-button variant="ghost" onclick="window.dispatchEvent(new CustomEvent('close-modal', { detail: 'demo-size-{{ $s }}' }))">
-                                        Fermer
+                                        Close
                                     </x-button>
                                 </x-slot:footer>
                             </x-overlay.modal>
@@ -119,14 +119,14 @@
                 <div class="px-6 py-4">
                     <span class="text-xs font-medium tracking-widest text-gray-400 uppercase">02</span>
                     <h2 class="text-sm font-semibold text-gray-800">Dropdown</h2>
-                    <p class="text-xs text-gray-400 mt-0.5">Menus contextuels et actions</p>
+                    <p class="text-xs text-gray-400 mt-0.5">Contextual menus and actions</p>
                 </div>
 
-                {{-- 01 — Basique --}}
+                {{-- 01 — Basic --}}
                 <div class="flex items-start gap-8 px-6 py-8">
                     <div class="flex flex-col gap-0.5 w-56 shrink-0">
-                        <code class="text-xs font-medium text-indigo-500">01 — basique</code>
-                        <span class="text-xs text-gray-400">Menu simple avec icônes</span>
+                        <code class="text-xs font-medium text-indigo-500">01 — basic</code>
+                        <span class="text-xs text-gray-400">Simple menu with icons</span>
                     </div>
                     <x-overlay.dropdown>
                         <x-slot:trigger>
@@ -135,17 +135,17 @@
                             </x-button>
                         </x-slot:trigger>
 
-                        <x-overlay.dropdown-item icon="fa-solid fa-pen">Modifier</x-overlay.dropdown-item>
-                        <x-overlay.dropdown-item icon="fa-solid fa-copy">Dupliquer</x-overlay.dropdown-item>
-                        <x-overlay.dropdown-item icon="fa-solid fa-share">Partager</x-overlay.dropdown-item>
+                        <x-overlay.dropdown-item icon="fa-solid fa-pen">Edit</x-overlay.dropdown-item>
+                        <x-overlay.dropdown-item icon="fa-solid fa-copy">Duplicate</x-overlay.dropdown-item>
+                        <x-overlay.dropdown-item icon="fa-solid fa-share">Share</x-overlay.dropdown-item>
                     </x-overlay.dropdown>
                 </div>
 
-                {{-- 02 — Avec divider et danger --}}
+                {{-- 02 — Divider and danger --}}
                 <div class="flex items-start gap-8 px-6 py-8">
                     <div class="flex flex-col gap-0.5 w-56 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">02 — divider + danger</code>
-                        <span class="text-xs text-gray-400">Séparateur et action destructive</span>
+                        <span class="text-xs text-gray-400">Separator and destructive action</span>
                     </div>
                     <x-overlay.dropdown>
                         <x-slot:trigger>
@@ -154,17 +154,17 @@
                             </x-button>
                         </x-slot:trigger>
 
-                        <x-overlay.dropdown-item icon="fa-solid fa-pen">Modifier</x-overlay.dropdown-item>
-                        <x-overlay.dropdown-item icon="fa-solid fa-copy">Dupliquer</x-overlay.dropdown-item>
+                        <x-overlay.dropdown-item icon="fa-solid fa-pen">Edit</x-overlay.dropdown-item>
+                        <x-overlay.dropdown-item icon="fa-solid fa-copy">Duplicate</x-overlay.dropdown-item>
                         <x-overlay.dropdown-divider />
-                        <x-overlay.dropdown-item icon="fa-solid fa-trash" variant="danger">Supprimer</x-overlay.dropdown-item>
+                        <x-overlay.dropdown-item icon="fa-solid fa-trash" variant="danger">Delete</x-overlay.dropdown-item>
                     </x-overlay.dropdown>
                 </div>
 
-                {{-- 03 — Alignement --}}
+                {{-- 03 — Alignment --}}
                 <div class="flex items-start gap-8 px-6 py-8">
                     <div class="flex flex-col gap-0.5 w-56 shrink-0">
-                        <code class="text-xs font-medium text-indigo-500">03 — alignement</code>
+                        <code class="text-xs font-medium text-indigo-500">03 — alignment</code>
                         <span class="text-xs text-gray-400">left, center, right</span>
                     </div>
                     <div class="flex gap-4">
@@ -173,18 +173,18 @@
                                 <x-slot:trigger>
                                     <x-button variant="outline">{{ ucfirst($align) }}</x-button>
                                 </x-slot:trigger>
-                                <x-overlay.dropdown-item icon="fa-solid fa-pen">Modifier</x-overlay.dropdown-item>
-                                <x-overlay.dropdown-item icon="fa-solid fa-trash" variant="danger">Supprimer</x-overlay.dropdown-item>
+                                <x-overlay.dropdown-item icon="fa-solid fa-pen">Edit</x-overlay.dropdown-item>
+                                <x-overlay.dropdown-item icon="fa-solid fa-trash" variant="danger">Delete</x-overlay.dropdown-item>
                             </x-overlay.dropdown>
                         @endforeach
                     </div>
                 </div>
 
-                {{-- 04 — Trigger icône --}}
+                {{-- 04 — Icon trigger --}}
                 <div class="flex items-start gap-8 px-6 py-8">
                     <div class="flex flex-col gap-0.5 w-56 shrink-0">
-                        <code class="text-xs font-medium text-indigo-500">04 — trigger icône</code>
-                        <span class="text-xs text-gray-400">Bouton kebab menu</span>
+                        <code class="text-xs font-medium text-indigo-500">04 — icon trigger</code>
+                        <span class="text-xs text-gray-400">Kebab menu button</span>
                     </div>
                     <x-overlay.dropdown>
                         <x-slot:trigger>
@@ -192,10 +192,10 @@
                                 <i class="fa-solid fa-ellipsis-vertical text-sm"></i>
                             </button>
                         </x-slot:trigger>
-                        <x-overlay.dropdown-item icon="fa-solid fa-pen">Modifier</x-overlay.dropdown-item>
-                        <x-overlay.dropdown-item icon="fa-solid fa-copy">Dupliquer</x-overlay.dropdown-item>
+                        <x-overlay.dropdown-item icon="fa-solid fa-pen">Edit</x-overlay.dropdown-item>
+                        <x-overlay.dropdown-item icon="fa-solid fa-copy">Duplicate</x-overlay.dropdown-item>
                         <x-overlay.dropdown-divider />
-                        <x-overlay.dropdown-item icon="fa-solid fa-trash" variant="danger">Supprimer</x-overlay.dropdown-item>
+                        <x-overlay.dropdown-item icon="fa-solid fa-trash" variant="danger">Delete</x-overlay.dropdown-item>
                     </x-overlay.dropdown>
                 </div>
 

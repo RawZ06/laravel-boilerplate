@@ -1,4 +1,4 @@
-{{-- resources/views/design-system/buttons.blade.php --}}
+{{-- resources/views/design-system/form.blade.php --}}
 
 @extends('layouts.design-system')
 
@@ -19,40 +19,40 @@
                 <div class="flex items-start justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">type="text"</code>
-                        <span class="text-xs text-gray-400">Champ texte standard</span>
+                        <span class="text-xs text-gray-400">Standard text field</span>
                     </div>
                     <div class="flex-1">
-                        <x-form.input name="ex_text" placeholder="Votre nom"/>
+                        <x-form.input name="ex_text" placeholder="Your name"/>
                     </div>
                 </div>
                 <div class="flex items-start justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">label + hint</code>
-                        <span class="text-xs text-gray-400">Avec label et texte d'aide</span>
+                        <span class="text-xs text-gray-400">With label and help text</span>
                     </div>
                     <div class="flex-1">
                         <x-form.input name="ex_email" type="email" label="Email"
-                                      hint="Nous ne partagerons jamais votre email." placeholder="jean@example.com"
+                                      hint="We will never share your email." placeholder="john@example.com"
                                       icon="fa-solid fa-envelope"/>
                     </div>
                 </div>
                 <div class="flex items-start justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">:error="..."</code>
-                        <span class="text-xs text-gray-400">État d'erreur</span>
+                        <span class="text-xs text-gray-400">Error state</span>
                     </div>
                     <div class="flex-1">
-                        <x-form.input name="ex_err" label="Email" error="Cette adresse est déjà utilisée."
-                                      value="jean@example" icon="fa-solid fa-envelope"/>
+                        <x-form.input name="ex_err" label="Email" error="This address is already in use."
+                                      value="john@example" icon="fa-solid fa-envelope"/>
                     </div>
                 </div>
                 <div class="flex items-start justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">:disabled="true"</code>
-                        <span class="text-xs text-gray-400">Champ désactivé</span>
+                        <span class="text-xs text-gray-400">Disabled field</span>
                     </div>
                     <div class="flex-1">
-                        <x-form.input name="ex_disabled" label="Identifiant" value="USR-00412" :disabled="true"/>
+                        <x-form.input name="ex_disabled" label="Identifier" value="USR-00412" :disabled="true"/>
                     </div>
                 </div>
             </div>
@@ -64,28 +64,28 @@
                 <span class="text-xs font-medium tracking-widest text-gray-400 uppercase">02</span>
                 <h2 class="text-xl font-semibold text-gray-900 tracking-tight">Textarea</h2>
                 <p class="text-sm text-gray-400">Props <code
-                        class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600 text-xs">rows</code> et <code
+                        class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600 text-xs">rows</code> and <code
                         class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600 text-xs">resize</code>.</p>
             </div>
 
             <div class="rounded-2xl border border-gray-100 bg-white shadow-xs divide-y divide-gray-50">
                 <div class="flex items-start justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
-                        <code class="text-xs font-medium text-indigo-500">défaut</code>
-                        <span class="text-xs text-gray-400">4 lignes, redimensionnable</span>
+                        <code class="text-xs font-medium text-indigo-500">default</code>
+                        <span class="text-xs text-gray-400">4 rows, resizable</span>
                     </div>
                     <div class="flex-1">
-                        <x-form.textarea name="ex_ta" label="Description" placeholder="Décrivez votre projet…"/>
+                        <x-form.textarea name="ex_ta" label="Description" placeholder="Describe your project…"/>
                     </div>
                 </div>
                 <div class="flex items-start justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">:resize="false"</code>
-                        <span class="text-xs text-gray-400">Hauteur fixe</span>
+                        <span class="text-xs text-gray-400">Fixed height</span>
                     </div>
                     <div class="flex-1">
-                        <x-form.textarea name="ex_ta2" :rows="3" :resize="false" placeholder="Note courte…"
-                                         hint="Maximum 200 caractères."/>
+                        <x-form.textarea name="ex_ta2" :rows="3" :resize="false" placeholder="Short note…"
+                                         hint="Maximum 200 characters."/>
                     </div>
                 </div>
             </div>
@@ -102,24 +102,24 @@
             <div class="rounded-2xl border border-gray-100 bg-white shadow-xs divide-y divide-gray-50">
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
-                        <code class="text-xs font-medium text-indigo-500">défaut</code>
-                        <span class="text-xs text-gray-400">Non coché</span>
+                        <code class="text-xs font-medium text-indigo-500">default</code>
+                        <span class="text-xs text-gray-400">Unchecked</span>
                     </div>
-                    <x-form.toggle name="ex_toggle1" label="Recevoir les notifications" />
+                    <x-form.toggle name="ex_toggle1" label="Receive notifications" />
                 </div>
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">:checked="true"</code>
-                        <span class="text-xs text-gray-400">Coché par défaut</span>
+                        <span class="text-xs text-gray-400">Checked by default</span>
                     </div>
-                    <x-form.toggle name="ex_toggle2" label="Mode sombre" :checked="true" hint="Appliqué sur tous vos appareils." />
+                    <x-form.toggle name="ex_toggle2" label="Dark mode" :checked="true" hint="Applied across all your devices." />
                 </div>
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">:disabled="true"</code>
-                        <span class="text-xs text-gray-400">Désactivé</span>
+                        <span class="text-xs text-gray-400">Disabled</span>
                     </div>
-                    <x-form.toggle name="ex_toggle3" label="Option verrouillée" :disabled="true" :checked="true" />
+                    <x-form.toggle name="ex_toggle3" label="Locked option" :disabled="true" :checked="true" />
                 </div>
             </div>
         </section>
@@ -135,31 +135,31 @@
             <div class="rounded-2xl border border-gray-100 bg-white shadow-xs divide-y divide-gray-50">
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
-                        <code class="text-xs font-medium text-indigo-500">défaut</code>
-                        <span class="text-xs text-gray-400">Non coché</span>
+                        <code class="text-xs font-medium text-indigo-500">default</code>
+                        <span class="text-xs text-gray-400">Unchecked</span>
                     </div>
-                    <x-form.checkbox name="ex_checkbox1" label="J'accepte les conditions" />
+                    <x-form.checkbox name="ex_checkbox1" label="I accept the terms" />
                 </div>
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">:checked="true"</code>
-                        <span class="text-xs text-gray-400">Coché par défaut</span>
+                        <span class="text-xs text-gray-400">Checked by default</span>
                     </div>
-                    <x-form.checkbox name="ex_checkbox2" label="Recevoir la newsletter" :checked="true" hint="Vous pouvez vous désabonner à tout moment." />
+                    <x-form.checkbox name="ex_checkbox2" label="Receive newsletter" :checked="true" hint="You can unsubscribe at any time." />
                 </div>
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">error</code>
-                        <span class="text-xs text-gray-400">État erreur</span>
+                        <span class="text-xs text-gray-400">Error state</span>
                     </div>
-                    <x-form.checkbox name="ex_checkbox3" label="J'accepte les conditions" error="Vous devez accepter les conditions." />
+                    <x-form.checkbox name="ex_checkbox3" label="I accept the terms" error="You must accept the terms." />
                 </div>
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">:disabled="true"</code>
-                        <span class="text-xs text-gray-400">Désactivé</span>
+                        <span class="text-xs text-gray-400">Disabled</span>
                     </div>
-                    <x-form.checkbox name="ex_checkbox4" label="Option verrouillée" :disabled="true" :checked="true" />
+                    <x-form.checkbox name="ex_checkbox4" label="Locked option" :disabled="true" :checked="true" />
                 </div>
             </div>
         </section>
@@ -175,35 +175,35 @@
             <div class="rounded-2xl border border-gray-100 bg-white shadow-xs divide-y divide-gray-50">
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
-                        <code class="text-xs font-medium text-indigo-500">défaut</code>
-                        <span class="text-xs text-gray-400">Non sélectionné</span>
+                        <code class="text-xs font-medium text-indigo-500">default</code>
+                        <span class="text-xs text-gray-400">Not selected</span>
                     </div>
                     <x-form.radio name="ex_radio1" value="a" label="Option A" />
                 </div>
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">:checked="true"</code>
-                        <span class="text-xs text-gray-400">Sélectionné par défaut</span>
+                        <span class="text-xs text-gray-400">Selected by default</span>
                     </div>
                     <div class="flex flex-col gap-2">
                         <x-form.radio name="ex_radio2" value="a" label="Option A" :checked="true" />
                         <x-form.radio name="ex_radio2" value="b" label="Option B" />
-                        <x-form.radio name="ex_radio2" value="c" label="Option C" hint="Recommandé pour la plupart des cas." />
+                        <x-form.radio name="ex_radio2" value="c" label="Option C" hint="Recommended for most cases." />
                     </div>
                 </div>
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">error</code>
-                        <span class="text-xs text-gray-400">État erreur</span>
+                        <span class="text-xs text-gray-400">Error state</span>
                     </div>
-                    <x-form.radio name="ex_radio3" value="a" label="Option A" error="Veuillez sélectionner une option." />
+                    <x-form.radio name="ex_radio3" value="a" label="Option A" error="Please select an option." />
                 </div>
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">:disabled="true"</code>
-                        <span class="text-xs text-gray-400">Désactivé</span>
+                        <span class="text-xs text-gray-400">Disabled</span>
                     </div>
-                    <x-form.radio name="ex_radio4" value="a" label="Option verrouillée" :disabled="true" :checked="true" />
+                    <x-form.radio name="ex_radio4" value="a" label="Locked option" :disabled="true" :checked="true" />
                 </div>
             </div>
         </section>
@@ -219,17 +219,17 @@
             <div class="rounded-2xl border border-gray-100 bg-white shadow-xs divide-y divide-gray-50">
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
-                        <code class="text-xs font-medium text-indigo-500">défaut</code>
-                        <span class="text-xs text-gray-400">Aucune sélection</span>
+                        <code class="text-xs font-medium text-indigo-500">default</code>
+                        <span class="text-xs text-gray-400">No selection</span>
                     </div>
                     <div class="w-72">
-                        <x-form.select name="ex_select1" label="Pays" placeholder="Choisir un pays..."
+                        <x-form.select name="ex_select1" label="Country" placeholder="Choose a country..."
                                        :options="[
                         ['value' => 'fr', 'label' => 'France'],
-                        ['value' => 'be', 'label' => 'Belgique'],
-                        ['value' => 'ch', 'label' => 'Suisse'],
-                        ['value' => 'de', 'label' => 'Allemagne'],
-                        ['value' => 'es', 'label' => 'Espagne'],
+                        ['value' => 'be', 'label' => 'Belgium'],
+                        ['value' => 'ch', 'label' => 'Switzerland'],
+                        ['value' => 'de', 'label' => 'Germany'],
+                        ['value' => 'es', 'label' => 'Spain'],
                     ]"
                         />
                     </div>
@@ -237,29 +237,29 @@
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">selected="fr"</code>
-                        <span class="text-xs text-gray-400">Valeur pré-sélectionnée</span>
+                        <span class="text-xs text-gray-400">Pre-selected value</span>
                     </div>
                     <div class="w-72">
-                        <x-form.select name="ex_select2" label="Pays" selected="fr"
+                        <x-form.select name="ex_select2" label="Country" selected="fr"
                                        :options="[
                         ['value' => 'fr', 'label' => 'France'],
-                        ['value' => 'be', 'label' => 'Belgique'],
-                        ['value' => 'ch', 'label' => 'Suisse'],
+                        ['value' => 'be', 'label' => 'Belgium'],
+                        ['value' => 'ch', 'label' => 'Switzerland'],
                     ]"
-                                       hint="Modifiable à tout moment."
+                                       hint="Can be modified at any time."
                         />
                     </div>
                 </div>
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">error</code>
-                        <span class="text-xs text-gray-400">État erreur</span>
+                        <span class="text-xs text-gray-400">Error state</span>
                     </div>
                     <div class="w-72">
-                        <x-form.select name="ex_select3" label="Catégorie" error="Veuillez sélectionner une catégorie."
+                        <x-form.select name="ex_select3" label="Category" error="Please select a category."
                                        :options="[
                         ['value' => '1', 'label' => 'Design'],
-                        ['value' => '2', 'label' => 'Développement'],
+                        ['value' => '2', 'label' => 'Development'],
                         ['value' => '3', 'label' => 'Marketing'],
                     ]"
                         />
@@ -268,13 +268,13 @@
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">:disabled="true"</code>
-                        <span class="text-xs text-gray-400">Désactivé</span>
+                        <span class="text-xs text-gray-400">Disabled</span>
                     </div>
                     <div class="w-72">
-                        <x-form.select name="ex_select4" label="Pays" selected="fr" :disabled="true"
+                        <x-form.select name="ex_select4" label="Country" selected="fr" :disabled="true"
                                        :options="[
                         ['value' => 'fr', 'label' => 'France'],
-                        ['value' => 'be', 'label' => 'Belgique'],
+                        ['value' => 'be', 'label' => 'Belgium'],
                     ]"
                         />
                     </div>
@@ -287,26 +287,26 @@
             <div class="px-6 py-4 border-b border-gray-100">
                 <span class="text-xs font-medium tracking-widest text-gray-400 uppercase">07</span>
                 <h2 class="text-lg font-semibold text-gray-800">Autocomplete</h2>
-                <p class="text-sm text-gray-400 mt-0.5">Sélection avec filtrage par saisie</p>
+                <p class="text-sm text-gray-400 mt-0.5">Selection with input filtering</p>
             </div>
             <div class="rounded-2xl border border-gray-100 bg-white shadow-xs divide-y divide-gray-50">
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
-                        <code class="text-xs font-medium text-indigo-500">défaut</code>
-                        <span class="text-xs text-gray-400">Aucune sélection</span>
+                        <code class="text-xs font-medium text-indigo-500">default</code>
+                        <span class="text-xs text-gray-400">No selection</span>
                     </div>
                     <div class="w-72">
                         <x-form.autocomplete
                             name="ex_auto1"
-                            label="Pays"
-                            placeholder="Choisir un pays..."
+                            label="Country"
+                            placeholder="Choose a country..."
                             :options="[
                         ['value' => 'fr', 'label' => 'France'],
-                        ['value' => 'be', 'label' => 'Belgique'],
-                        ['value' => 'ch', 'label' => 'Suisse'],
-                        ['value' => 'de', 'label' => 'Allemagne'],
-                        ['value' => 'es', 'label' => 'Espagne'],
-                        ['value' => 'it', 'label' => 'Italie'],
+                        ['value' => 'be', 'label' => 'Belgium'],
+                        ['value' => 'ch', 'label' => 'Switzerland'],
+                        ['value' => 'de', 'label' => 'Germany'],
+                        ['value' => 'es', 'label' => 'Spain'],
+                        ['value' => 'it', 'label' => 'Italy'],
                         ['value' => 'pt', 'label' => 'Portugal'],
                     ]"
                         />
@@ -315,32 +315,32 @@
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">selected="fr"</code>
-                        <span class="text-xs text-gray-400">Valeur pré-sélectionnée</span>
+                        <span class="text-xs text-gray-400">Pre-selected value</span>
                     </div>
                     <div class="w-72">
                         <x-form.autocomplete
                             name="ex_auto2"
-                            label="Pays"
+                            label="Country"
                             selected="fr"
                             :options="[
                         ['value' => 'fr', 'label' => 'France'],
-                        ['value' => 'be', 'label' => 'Belgique'],
-                        ['value' => 'ch', 'label' => 'Suisse'],
+                        ['value' => 'be', 'label' => 'Belgium'],
+                        ['value' => 'ch', 'label' => 'Switzerland'],
                     ]"
-                            hint="Modifiable à tout moment."
+                            hint="Can be modified at any time."
                         />
                     </div>
                 </div>
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">error</code>
-                        <span class="text-xs text-gray-400">État erreur</span>
+                        <span class="text-xs text-gray-400">Error state</span>
                     </div>
                     <div class="w-72">
                         <x-form.autocomplete
                             name="ex_auto3"
-                            label="Ville"
-                            error="Veuillez sélectionner une ville."
+                            label="City"
+                            error="Please select a city."
                             :options="[
                         ['value' => 'paris', 'label' => 'Paris'],
                         ['value' => 'lyon', 'label' => 'Lyon'],
@@ -353,17 +353,17 @@
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">:disabled="true"</code>
-                        <span class="text-xs text-gray-400">Désactivé</span>
+                        <span class="text-xs text-gray-400">Disabled</span>
                     </div>
                     <div class="w-72">
                         <x-form.autocomplete
                             name="ex_auto4"
-                            label="Pays"
+                            label="Country"
                             selected="fr"
                             :disabled="true"
                             :options="[
                         ['value' => 'fr', 'label' => 'France'],
-                        ['value' => 'be', 'label' => 'Belgique'],
+                        ['value' => 'be', 'label' => 'Belgium'],
                     ]"
                         />
                     </div>
@@ -376,40 +376,40 @@
             <div class="px-6 py-4 border-b border-gray-100">
                 <span class="text-xs font-medium tracking-widest text-gray-400 uppercase">08</span>
                 <h2 class="text-lg font-semibold text-gray-800">Date</h2>
-                <p class="text-sm text-gray-400 mt-0.5">Sélecteur de date avec calendrier custom</p>
+                <p class="text-sm text-gray-400 mt-0.5">Date picker with custom calendar</p>
             </div>
             <div class="rounded-2xl border border-gray-100 bg-white shadow-xs divide-y divide-gray-50">
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
-                        <code class="text-xs font-medium text-indigo-500">défaut</code>
-                        <span class="text-xs text-gray-400">Aucune date</span>
+                        <code class="text-xs font-medium text-indigo-500">default</code>
+                        <span class="text-xs text-gray-400">No date</span>
                     </div>
                     <div class="w-72">
-                        <x-form.date name="ex_date1" label="Date de naissance" />
+                        <x-form.date name="ex_date1" label="Date of birth" />
                     </div>
                 </div>
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">value="2024-03-15"</code>
-                        <span class="text-xs text-gray-400">Date pré-remplie</span>
+                        <span class="text-xs text-gray-400">Pre-filled date</span>
                     </div>
                     <div class="w-72">
-                        <x-form.date name="ex_date2" label="Date de début" value="2024-03-15" hint="Format JJ/MM/AAAA." />
+                        <x-form.date name="ex_date2" label="Start date" value="2024-03-15" hint="Format DD/MM/YYYY." />
                     </div>
                 </div>
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">error</code>
-                        <span class="text-xs text-gray-400">État erreur</span>
+                        <span class="text-xs text-gray-400">Error state</span>
                     </div>
                     <div class="w-72">
-                        <x-form.date name="ex_date3" label="Date d'expiration" error="La date est invalide." />
+                        <x-form.date name="ex_date3" label="Expiration date" error="The date is invalid." />
                     </div>
                 </div>
                 <div class="flex items-center justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">:disabled="true"</code>
-                        <span class="text-xs text-gray-400">Désactivé</span>
+                        <span class="text-xs text-gray-400">Disabled</span>
                     </div>
                     <div class="w-72">
                         <x-form.date name="ex_date4" label="Date" value="2024-01-01" :disabled="true" />
@@ -429,29 +429,29 @@
             <div class="rounded-2xl border border-gray-100 bg-white shadow-xs divide-y divide-gray-50">
                 <div class="flex items-start justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
-                        <code class="text-xs font-medium text-indigo-500">défaut</code>
-                        <span class="text-xs text-gray-400">Swatches + picker custom</span>
+                        <code class="text-xs font-medium text-indigo-500">default</code>
+                        <span class="text-xs text-gray-400">Swatches + custom picker</span>
                     </div>
                     <div class="flex-1">
-                        <x-form.color name="ex_color" label="Couleur de marque" hint="Choisissez parmi les swatches ou une couleur libre."/>
+                        <x-form.color name="ex_color" label="Brand color" hint="Choose from swatches or a custom color."/>
                     </div>
                 </div>
                 <div class="flex items-start justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">value + error</code>
-                        <span class="text-xs text-gray-400">Valeur initiale + état erreur</span>
+                        <span class="text-xs text-gray-400">Initial value + error state</span>
                     </div>
                     <div class="flex-1">
-                        <x-form.color name="ex_color2" label="Couleur secondaire" value="#ef4444" error="Cette couleur est déjà utilisée."/>
+                        <x-form.color name="ex_color2" label="Secondary color" value="#ef4444" error="This color is already in use."/>
                     </div>
                 </div>
                 <div class="flex items-start justify-between px-6 py-4 gap-8">
                     <div class="flex flex-col gap-0.5 w-64 shrink-0">
                         <code class="text-xs font-medium text-indigo-500">disabled</code>
-                        <span class="text-xs text-gray-400">Non modifiable</span>
+                        <span class="text-xs text-gray-400">Not modifiable</span>
                     </div>
                     <div class="flex-1">
-                        <x-form.color name="ex_color3" label="Couleur verrouillée" value="#14b8a6" :disabled="true"/>
+                        <x-form.color name="ex_color3" label="Locked color" value="#14b8a6" :disabled="true"/>
                     </div>
                 </div>
             </div>
@@ -460,7 +460,7 @@
 
 
 
-        {{-- Les sections suivantes seront ajoutées au fur et à mesure --}}
+        {{-- Future sections will be added as needed --}}
 
     </div>
 @endsection

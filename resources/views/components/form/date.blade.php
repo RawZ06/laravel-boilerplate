@@ -24,7 +24,7 @@
     },
     get monthLabel() {
         return new Date(this.viewYear, this.viewMonth, 1)
-            .toLocaleString('fr-FR', { month: 'long', year: 'numeric' })
+            .toLocaleString('en-US', { month: 'long', year: 'numeric' })
             .replace(/^\w/, c => c.toUpperCase())
     },
     get days() {
@@ -60,7 +60,7 @@
     get displayValue() {
         if (!this.selected) return ''
         const [y, m, d] = this.selected.split('-')
-        return d + '/' + m + '/' + y
+        return m + '/' + d + '/' + y
     },
     clear() {
         this.selected = ''
@@ -85,14 +85,14 @@
                 {{ $disabled ? 'opacity-50 cursor-not-allowed' : '' }}"
             :class="open && !{{ $error ? 'true' : 'false' }} ? 'ring-2 ring-indigo-400 border-indigo-400' : ''"
         >
-            {{-- Icône calendrier --}}
+            {{-- Calendar icon --}}
             <svg class="w-4 h-4 mr-2.5 shrink-0 {{ $error ? 'text-rose-300' : 'text-gray-300' }}"
                  fill="none" stroke="currentColor" stroke-width="2"
                  stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                 <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
             </svg>
 
-            <span x-text="displayValue || 'jj/mm/aaaa'"
+            <span x-text="displayValue || 'mm/dd/yyyy'"
                   :class="selected ? 'text-gray-800' : 'text-gray-400'"
                   class="flex-1"></span>
 
@@ -148,14 +148,14 @@
                     </button>
                 </div>
 
-                {{-- Jours de la semaine --}}
+                {{-- Week days --}}
                 <div class="grid grid-cols-7 mb-1">
-                    <template x-for="day in ['Lu','Ma','Me','Je','Ve','Sa','Di']">
+                    <template x-for="day in ['Mo','Tu','We','Th','Fr','Sa','Su']">
                         <div class="text-center text-xs font-medium text-gray-400 py-1" x-text="day"></div>
                     </template>
                 </div>
 
-                {{-- Grille --}}
+                {{-- Grid --}}
                 <div class="grid grid-cols-7 gap-y-0.5">
                     <template x-for="(cell, i) in days" :key="i">
                         <div class="flex items-center justify-center">
@@ -177,12 +177,12 @@
                     </template>
                 </div>
 
-                {{-- Aujourd'hui --}}
+                {{-- Today --}}
                 <div class="mt-3 pt-3 border-t border-gray-100">
                     <button type="button"
                             @click="if(!isDisabled(today)) { selected = today; open = false }"
                             class="w-full text-xs text-center text-indigo-500 hover:text-indigo-600 font-medium transition-colors">
-                        Aujourd'hui
+                        Today
                     </button>
                 </div>
             </div>

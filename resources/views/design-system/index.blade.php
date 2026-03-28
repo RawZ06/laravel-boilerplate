@@ -4,10 +4,9 @@
 
         {{-- Intro --}}
         <div class="flex flex-col gap-2">
-            <h2 class="text-2xl font-semibold text-gray-900 tracking-tight">Bienvenue</h2>
+            <h2 class="text-2xl font-semibold text-gray-900 tracking-tight">Welcome</h2>
             <p class="text-sm text-gray-400 max-w-lg">
-                Référence visuelle de tous les composants disponibles. Chaque page documente les props, variantes et
-                états d'un composant.
+                Visual reference for all available components. Each page documents the props, variants, and states of a component.
             </p>
         </div>
 
@@ -20,8 +19,8 @@
                     'route'       => 'design-system.buttons',
                     'tag'         => 'x-button',
                     'icon'        => 'fa-solid fa-computer-mouse',
-                    'description' => 'Variantes, tailles, icônes, états loading / disabled, rendu lien.',
-                    'count'       => '7 variantes',
+                    'description' => 'Variants, sizes, icons, loading / disabled states, link rendering.',
+                    'count'       => '7 variants',
                 ],
                 [
                     'title'       => 'Form',
@@ -29,7 +28,7 @@
                     'tag'         => 'x-form.*',
                     'icon'        => 'fa-solid fa-pen-to-square',
                     'description' => 'Input, textarea, toggle, checkbox, radio, select, date, color, autocomplete.',
-                    'count'       => '9 composants',
+                    'count'       => '9 components',
                 ],
                 [
                     'title'       => 'Table',
@@ -37,7 +36,7 @@
                     'tag'         => 'x-table.*',
                     'icon'        => 'fa-solid fa-table',
                     'description' => 'Table, search-bar, filter, pagination.',
-                    'count'       => '4 composants',
+                    'count'       => '4 components',
                 ],
                 [
                     'title'       => 'Feedback',
@@ -45,7 +44,7 @@
                     'tag'         => 'x-feedback.*',
                     'icon'        => 'fa-solid fa-message',
                     'description' => 'Alert, badge, toast.',
-                    'count'       => '3 composants',
+                    'count'       => '3 components',
                 ],
                 [
                     'title'       => 'Overlay',
@@ -53,7 +52,7 @@
                     'tag'         => 'x-overlay.*',
                     'icon'        => 'fa-solid fa-layer-group',
                     'description' => 'Modal, dropdown, dropdown-item, dropdown-divider.',
-                    'count'       => '4 composants',
+                    'count'       => '4 components',
                 ],
                 [
                     'title'       => 'Nav',
@@ -61,7 +60,7 @@
                     'tag'         => 'x-nav.*',
                     'icon'        => 'fa-solid fa-bars',
                     'description' => 'Breadcrumb.',
-                    'count'       => '1 composant',
+                    'count'       => '1 component',
                 ],
             ] as $card)
                 <a href="{{ route($card['route']) }}"
@@ -83,7 +82,7 @@
                     </div>
 
                     <div class="flex items-center gap-1 text-xs text-indigo-400 font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                        Voir les composants <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        View components <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </div>
 
                 </a>

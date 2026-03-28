@@ -1,7 +1,7 @@
 @props([
     'name'        => null,
     'label'       => null,
-    'placeholder' => 'Rechercher...',
+    'placeholder' => 'Search...',
     'hint'        => null,
     'error'       => null,
     'options'     => [],
@@ -50,13 +50,13 @@
         </label>
     @endif
 
-    {{-- Input caché --}}
+    {{-- Hidden input --}}
     <input type="hidden" name="{{ $name }}" :value="selected">
 
-    {{-- Input visible --}}
+    {{-- Visible input --}}
     <div class="relative">
         <div class="relative">
-            {{-- Icône loupe --}}
+            {{-- Search icon --}}
             <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-300 pointer-events-none"
                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                 <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
@@ -77,7 +77,7 @@
                     {{ $disabled ? 'opacity-50 cursor-not-allowed' : '' }}"
             >
 
-            {{-- Croix clear --}}
+            {{-- Clear cross --}}
             <button
                 type="button"
                 x-show="query !== ''"

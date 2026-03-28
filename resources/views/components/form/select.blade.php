@@ -1,7 +1,7 @@
 @props([
     'name'        => null,
     'label'       => null,
-    'placeholder' => 'Sélectionner...',
+    'placeholder' => 'Select...',
     'hint'        => null,
     'error'       => null,
     'options'     => [],
@@ -35,7 +35,7 @@
         </label>
     @endif
 
-    {{-- Input caché pour le submit --}}
+    {{-- Hidden input for submit --}}
     <input type="hidden" name="{{ $name }}" :value="selected">
 
     {{-- Trigger --}}

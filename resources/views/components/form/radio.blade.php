@@ -22,13 +22,13 @@
                 @if($disabled) disabled @endif
                 class="sr-only peer"
             >
-            {{-- Cercle outer --}}
+            {{-- Outer circle --}}
             <span class="w-5 h-5 rounded-full border-2 border-gray-300 bg-white
                 peer-checked:border-indigo-500
                 transition-colors duration-200
                 {{ $error ? 'border-rose-300' : '' }}">
             </span>
-            {{-- Dot inner --}}
+            {{-- Inner dot --}}
             <span class="absolute w-2.5 h-2.5 rounded-full bg-indigo-500
                 opacity-0 peer-checked:opacity-100
                 transition-opacity duration-200 pointer-events-none">

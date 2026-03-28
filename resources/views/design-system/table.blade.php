@@ -10,14 +10,14 @@
             <div class="px-6 py-4 border-b border-gray-100">
                 <span class="text-xs font-medium tracking-widest text-gray-400 uppercase">Table</span>
                 <h2 class="text-sm font-semibold text-gray-800">Table</h2>
-                <p class="text-xs text-gray-400 mt-0.5">Tableau de données avec tri, recherche inline et pagination</p>
+                <p class="text-xs text-gray-400 mt-0.5">Data table with sorting, inline search, and pagination</p>
             </div>
 
             {{-- 01 — Simple --}}
             <div class="flex items-start gap-8 px-6 py-8">
                 <div class="flex flex-col gap-0.5 w-56 shrink-0">
                     <code class="text-xs font-medium text-indigo-500">01 — simple</code>
-                    <span class="text-xs text-gray-400">Table basique sans tri ni recherche</span>
+                    <span class="text-xs text-gray-400">Basic table without sorting or search</span>
                 </div>
                 <div class="flex-1">
                     <x-table.table
@@ -28,9 +28,9 @@
                             ['name' => 'Carol', 'email' => 'carol@example.com', 'role' => 'User'],
                         ])"
                         :columns="[
-                            ['key' => 'name',  'label' => 'Nom',   'sortable' => false, 'searchable' => false],
+                            ['key' => 'name',  'label' => 'Name',  'sortable' => false, 'searchable' => false],
                             ['key' => 'email', 'label' => 'Email', 'sortable' => false, 'searchable' => false],
-                            ['key' => 'role',  'label' => 'Rôle',  'sortable' => false, 'searchable' => false],
+                            ['key' => 'role',  'label' => 'Role',  'sortable' => false, 'searchable' => false],
                         ]"
                     />
                 </div>
@@ -40,7 +40,7 @@
             <div class="flex items-start gap-8 px-6 py-8">
                 <div class="flex flex-col gap-0.5 w-56 shrink-0">
                     <code class="text-xs font-medium text-indigo-500">02 — sortable</code>
-                    <span class="text-xs text-gray-400">Colonnes triables, indépendant du tableau 04</span>
+                    <span class="text-xs text-gray-400">Sortable columns, independent from table 04</span>
                 </div>
                 <div class="flex-1">
                     <x-table.table
@@ -51,9 +51,9 @@
                             ['name' => 'Carol', 'email' => 'carol@example.com', 'role' => 'User'],
                         ])"
                         :columns="[
-                            ['key' => 'name',  'label' => 'Nom',   'sortable' => true,  'searchable' => false],
+                            ['key' => 'name',  'label' => 'Name',  'sortable' => true,  'searchable' => false],
                             ['key' => 'email', 'label' => 'Email', 'sortable' => true,  'searchable' => false],
-                            ['key' => 'role',  'label' => 'Rôle',  'sortable' => false, 'searchable' => false],
+                            ['key' => 'role',  'label' => 'Role',  'sortable' => false, 'searchable' => false],
                         ]"
                         :current-sort="request('table02_sort', 'email')"
                         :current-dir="request('table02_dir', 'asc')"
@@ -61,11 +61,11 @@
                 </div>
             </div>
 
-            {{-- 03 — Recherche inline --}}
+            {{-- 03 — Inline search --}}
             <div class="flex items-start gap-8 px-6 py-8">
                 <div class="flex flex-col gap-0.5 w-56 shrink-0">
                     <code class="text-xs font-medium text-indigo-500">03 — searchable</code>
-                    <span class="text-xs text-gray-400">Recherche inline dans l'en-tête de colonne (Entrée)</span>
+                    <span class="text-xs text-gray-400">Inline search in column header (Enter)</span>
                 </div>
                 <div class="flex-1">
                     <x-table.table
@@ -76,9 +76,9 @@
                             ['name' => 'Carol', 'email' => 'carol@example.com', 'role' => 'User'],
                         ])"
                         :columns="[
-                            ['key' => 'name',  'label' => 'Nom',   'sortable' => true, 'searchable' => true],
+                            ['key' => 'name',  'label' => 'Name',  'sortable' => true, 'searchable' => true],
                             ['key' => 'email', 'label' => 'Email', 'sortable' => true, 'searchable' => true],
-                            ['key' => 'role',  'label' => 'Rôle',  'sortable' => false,'searchable' => false],
+                            ['key' => 'role',  'label' => 'Role',  'sortable' => false,'searchable' => false],
                         ]"
                         :current-sort="request('table03_sort')"
                         :current-dir="request('table03_dir', 'asc')"
@@ -90,7 +90,7 @@
             <div class="flex items-start gap-8 px-6 py-8">
                 <div class="flex flex-col gap-0.5 w-56 shrink-0">
                     <code class="text-xs font-medium text-indigo-500">04 — paginator</code>
-                    <span class="text-xs text-gray-400">Pagination + recherche inline, tri indépendant du tableau 02</span>
+                    <span class="text-xs text-gray-400">Pagination + inline search, independent sorting from table 02</span>
                 </div>
                 <div class="flex-1">
                     @php
@@ -121,9 +121,9 @@
                         id="table04"
                         :rows="$paginator04"
                         :columns="[
-                            ['key' => 'name',  'label' => 'Nom',   'sortable' => true,  'searchable' => true],
+                            ['key' => 'name',  'label' => 'Name',  'sortable' => true,  'searchable' => true],
                             ['key' => 'email', 'label' => 'Email', 'sortable' => true,  'searchable' => true],
-                            ['key' => 'role',  'label' => 'Rôle',  'sortable' => false, 'searchable' => false],
+                            ['key' => 'role',  'label' => 'Role',  'sortable' => false, 'searchable' => false],
                         ]"
                         :current-sort="request('table04_sort', 'name')"
                         :current-dir="request('table04_dir', 'asc')"
@@ -135,18 +135,18 @@
             <div class="flex items-start gap-8 px-6 py-8">
                 <div class="flex flex-col gap-0.5 w-56 shrink-0">
                     <code class="text-xs font-medium text-indigo-500">05 — empty</code>
-                    <span class="text-xs text-gray-400">Aucune donnée — état vide</span>
+                    <span class="text-xs text-gray-400">No data — empty state</span>
                 </div>
                 <div class="flex-1">
                     <x-table.table
                         id="table05"
                         :rows="collect([])"
                         :columns="[
-                            ['key' => 'name',  'label' => 'Nom',   'sortable' => false, 'searchable' => false],
+                            ['key' => 'name',  'label' => 'Name',  'sortable' => false, 'searchable' => false],
                             ['key' => 'email', 'label' => 'Email', 'sortable' => false, 'searchable' => false],
-                            ['key' => 'role',  'label' => 'Rôle',  'sortable' => false, 'searchable' => false],
+                            ['key' => 'role',  'label' => 'Role',  'sortable' => false, 'searchable' => false],
                         ]"
-                        empty-message="Aucun utilisateur trouvé."
+                        empty-message="No user found."
                     />
                 </div>
             </div>

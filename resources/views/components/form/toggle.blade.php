@@ -14,7 +14,7 @@
 
         <input type="hidden" name="{{ $name }}" value="0">
 
-        {{-- Wrapper relatif pour positionner track + thumb --}}
+        {{-- Relative wrapper to position track + thumb --}}
         <span class="relative inline-flex items-center">
             <input
                 type="checkbox"
