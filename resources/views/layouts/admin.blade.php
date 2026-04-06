@@ -12,7 +12,7 @@
     $menu = [
         'Nav' => [
             ['icon' => 'fa-solid fa-gauge', 'label' => 'Dashboard', 'route' => 'backend.index'],
-            ['icon' => 'fa-solid fa-users', 'label' => 'Users'],
+            ['icon' => 'fa-solid fa-users', 'label' => 'Users', 'route' => 'backend.users.index'],
         ],
         'Settings' => [
             ['icon' => 'fa-solid fa-gear', 'label' => 'Config'],
@@ -104,11 +104,11 @@
                     <div class="flex items-center h-full px-2">
                         <x-overlay.dropdown align="right">
                             <x-slot:trigger>
-                                <button type="button" class="w-10 h-10 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors flex items-center justify-center rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 border border-transparent hover:border-gray-200 dark:hover:border-slate-700">
+                                <x-button variant="ghost">
                                     <i x-show="theme === 'light'" class="fa-solid fa-sun text-lg" x-cloak></i>
                                     <i x-show="theme === 'dark'" class="fa-solid fa-moon text-lg" x-cloak></i>
                                     <i x-show="theme === 'system'" class="fa-solid fa-desktop text-lg" x-cloak></i>
-                                </button>
+                                </x-button>
                             </x-slot:trigger>
 
                             <x-overlay.dropdown-item @click="setTheme('light')" icon="fa-solid fa-sun">
@@ -160,7 +160,14 @@
             @endif
 
             <!-- PAGE CONTENT -->
-            <div class="grow p-6">
+            <div class="grow p-6 flex flex-col gap-8">
+                @foreach(['success', 'error', 'warning', 'info'] as $type)
+                    @if(session($type))
+                        <x-feedback.alert :variant="$type" :dismissible="true">
+                            {{ session($type) }}
+                        </x-feedback.alert>
+                    @endif
+                @endforeach
                 @yield('content')
             </div>
 

@@ -23,16 +23,26 @@
                     <x-table.table
                         id="table01"
                         :rows="collect([
-                            ['name' => 'Alice', 'email' => 'alice@example.com', 'role' => 'Admin'],
-                            ['name' => 'Bob',   'email' => 'bob@example.com',   'role' => 'User'],
-                            ['name' => 'Carol', 'email' => 'carol@example.com', 'role' => 'User'],
+                            (object) ['name' => 'Alice', 'email' => 'alice@example.com', 'role' => 'Admin'],
+                            (object) ['name' => 'Bob',   'email' => 'bob@example.com',   'role' => 'User'],
+                            (object) ['name' => 'Carol', 'email' => 'carol@example.com', 'role' => 'User'],
                         ])"
                         :columns="[
                             ['key' => 'name',  'label' => 'Name',  'sortable' => false, 'searchable' => false],
                             ['key' => 'email', 'label' => 'Email', 'sortable' => false, 'searchable' => false],
                             ['key' => 'role',  'label' => 'Role',  'sortable' => false, 'searchable' => false],
                         ]"
-                    />
+                    >
+                        <x-slot:rowTemplate>
+                            <x-table.row column="role">
+                                @verbatim
+                                <span class="px-2 py-1 text-xs font-medium rounded-full {{ $row->role === 'Admin' ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-400' : 'bg-gray-100 text-gray-700 dark:bg-slate-800 dark:text-slate-400' }}">
+                                    {{ $row->role }}
+                                </span>
+                                @endverbatim
+                            </x-table.row>
+                        </x-slot:rowTemplate>
+                    </x-table.table>
                 </div>
             </div>
 

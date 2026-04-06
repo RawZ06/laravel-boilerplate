@@ -20,7 +20,7 @@
             <thead>
             <tr class="border-b border-gray-100 dark:border-slate-800">
                 @foreach($columns as $col)
-                    <th class="px-5 py-3 font-semibold text-gray-700 dark:text-slate-300 text-sm whitespace-nowrap">
+                    <th class="px-5 py-3 font-semibold text-gray-700 dark:text-slate-300 text-sm whitespace-nowrap {{ $col['key'] === 'action' ? 'text-right' : '' }}">
                         @if($col['sortable'])
                             <a href="{{ $sortUrl($col['key']) }}"
                                class="inline-flex items-center gap-1.5 hover:text-indigo-600 transition-colors
@@ -75,8 +75,31 @@
                 <tr class="{{ $striped && $i % 2 === 1 ? 'bg-gray-50/60 dark:bg-slate-800/40' : 'bg-white dark:bg-slate-900' }}
                                 hover:bg-indigo-50/30 dark:hover:bg-indigo-500/10 transition-colors">
                     @foreach($columns as $col)
-                        <td class="px-5 py-3.5 text-gray-700 dark:text-slate-300 whitespace-nowrap">
-                            {{ is_array($row) ? ($row[$col['key']] ?? '—') : ($row->{$col['key']} ?? '—') }}
+                        <td class="px-5 py-3.5 text-gray-700 dark:text-slate-300 whitespace-nowrap {{ $col['key'] === 'action' ? 'text-right' : '' }}">
+                            @php
+                                $cellContent = is_array($row) ? ($row[$col['key']] ?? '—') : ($row->{$col['key']} ?? '—');
+                            @endphp
+
+                            @if(isset($rowTemplate))
+                                @php
+                                    $html = (string) $rowTemplate;
+                                    $customContent = null;
+
+                                    // Chercher <template column="KEY">...</template>
+                                    $pattern = '/<template\s+column="' . preg_quote($col['key'], '/') . '"[^>]*>(.*?)<\/template>/is';
+                                    if (preg_match($pattern, $html, $matches)) {
+                                        $customContent = $matches[1];
+                                    }
+                                @endphp
+
+                                @if($customContent !== null)
+                                    {!! \Illuminate\Support\Facades\Blade::render($customContent, ['row' => $row]) !!}
+                                @else
+                                    {{ $cellContent }}
+                                @endif
+                            @else
+                                {{ $cellContent }}
+                            @endif
                         </td>
                     @endforeach
                 </tr>

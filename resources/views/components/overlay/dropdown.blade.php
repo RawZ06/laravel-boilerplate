@@ -24,9 +24,9 @@
             :style="{
                 position: 'fixed',
                 top: y + 'px',
-                left: align === 'right' ? 'auto' : (align === 'center' ? 'auto' : x + 'px'),
+                left: align === 'right' ? 'auto' : (align === 'center' ? x + 'px' : x + 'px'),
                 right: align === 'right' ? (document.documentElement.clientWidth - x) + 'px' : 'auto',
-                transform: align === 'center' ? `translateX(-50%)` : 'none',
+                transform: align === 'center' ? 'translateX(-50%)' : 'none',
                 display: open ? 'block' : 'none'
             }"
             class="z-[9999] min-w-48 bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-800 rounded-xl shadow-lg overflow-hidden"

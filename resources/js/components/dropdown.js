@@ -5,13 +5,13 @@ export default (config) => ({
     align: config.align,
     toggle(el) {
         const rect = el.getBoundingClientRect();
-        this.y = rect.bottom + window.scrollY + 8;
+        this.y = rect.bottom + 8;
         if (this.align === 'right') {
-            this.x = rect.right + window.scrollX;
+            this.x = rect.right;
         } else if (this.align === 'center') {
-            this.x = rect.left + window.scrollX + rect.width / 2;
+            this.x = rect.left + rect.width / 2;
         } else {
-            this.x = rect.left + window.scrollX;
+            this.x = rect.left;
         }
         this.open = !this.open;
     }
