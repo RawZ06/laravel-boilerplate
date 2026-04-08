@@ -14,7 +14,7 @@
 
             <div>
                 <blockquote class="text-slate-300 dark:text-slate-400 text-xl leading-relaxed mb-6">
-                    "An interface designed to move fast, without sacrificing what matters."
+                    "Start building something great today."
                 </blockquote>
                 <p class="text-slate-500 dark:text-slate-600 text-sm">— The product team</p>
             </div>
@@ -34,8 +34,8 @@
                     <span class="font-semibold text-lg text-slate-800 dark:text-white">{{ config('app.name', 'Laravel') }}</span>
                 </div>
 
-                <h1 class="text-2xl font-semibold text-slate-800 dark:text-white mb-1">Welcome back 👋</h1>
-                <p class="text-slate-500 dark:text-slate-400 text-sm mb-8">Sign in to your account.</p>
+                <h1 class="text-2xl font-semibold text-slate-800 dark:text-white mb-1">Create an account 🚀</h1>
+                <p class="text-slate-500 dark:text-slate-400 text-sm mb-8">Fill in the form below to get started.</p>
 
                 {{-- Error alert --}}
                 @if ($errors->any())
@@ -50,8 +50,23 @@
                     </div>
                 @endif
 
-                <form method="POST" action="{{ route('auth.login') }}" class="space-y-5">
+                <form method="POST" action="{{ route('auth.register') }}" class="space-y-5">
                     @csrf
+
+                    {{-- Name --}}
+                    <x-form.field label="Full name" for="name">
+                        <x-form.input
+                            type="text"
+                            id="name"
+                            name="name"
+                            :value="old('name')"
+                            placeholder="John Doe"
+                            required
+                            autofocus
+                            autocomplete="name"
+                            :error="$errors->first('name')"
+                        />
+                    </x-form.field>
 
                     {{-- Email --}}
                     <x-form.field label="Email address" for="email">
@@ -62,57 +77,54 @@
                             :value="old('email')"
                             placeholder="you@example.com"
                             required
-                            autofocus
                             autocomplete="email"
                             :error="$errors->first('email')"
                         />
                     </x-form.field>
 
                     {{-- Password --}}
-                    <x-form.field for="password">
-                        <x-slot name="label">
-                            <div class="flex items-center justify-between mb-1.5">
-                                <label for="password" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Password</label>
-                                @if (Route::has('password.request'))
-                                    <a href="{{ route('password.request') }}" class="text-xs text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition">
-                                        Forgot password?
-                                    </a>
-                                @endif
-                            </div>
-                        </x-slot>
+                    <x-form.field label="Password" for="password">
                         <x-form.input
                             type="password"
                             id="password"
                             name="password"
                             placeholder="••••••••"
                             required
-                            autocomplete="current-password"
+                            autocomplete="new-password"
                             :error="$errors->first('password')"
                         />
                     </x-form.field>
 
-                    {{-- Remember me --}}
-                    <x-form.checkbox
-                        id="remember"
-                        name="remember"
-                        label="Remember me"
-                    />
+                    {{-- Confirm Password --}}
+                    <x-form.field label="Confirm password" for="password_confirmation">
+                        <x-form.input
+                            type="password"
+                            id="password_confirmation"
+                            name="password_confirmation"
+                            placeholder="••••••••"
+                            required
+                            autocomplete="new-password"
+                            :error="$errors->first('password_confirmation')"
+                        />
+                    </x-form.field>
 
                     {{-- Submit --}}
                     <x-button
                         type="submit"
                         class="w-full"
                     >
-                        Sign in
+                        Create account
                     </x-button>
 
                 </form>
+
                 <p class="mt-6 text-center text-sm text-slate-500 dark:text-slate-400">
-                    Don't have an account?
-                    <a href="{{ route('auth.register') }}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition font-medium">
-                        Create one
+                    Already have an account?
+                    <a href="{{ route('auth.login') }}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition font-medium">
+                        Sign in
                     </a>
                 </p>
+
             </div>
         </div>
 

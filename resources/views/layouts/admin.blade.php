@@ -142,6 +142,10 @@
                             Back to website
                         </x-overlay.dropdown-item>
 
+                        <x-overlay.dropdown-item :href="route('auth.profile')" icon="fa-solid fa-user">
+                            Profile
+                        </x-overlay.dropdown-item>
+
                         <x-overlay.dropdown-item href="{{ route('auth.logout') }}" icon="fa-solid fa-right-from-bracket">
                             Log out
                         </x-overlay.dropdown-item>
