@@ -14,7 +14,54 @@
         <div class="grid grid-cols-2 gap-4">
 
             @foreach([
-                // ... (existing array)
+                [
+                    'title'       => 'Buttons',
+                    'route'       => 'design-system.buttons',
+                    'tag'         => 'x-button',
+                    'icon'        => 'fa-solid fa-computer-mouse',
+                    'description' => 'Variants, sizes, icons, loading / disabled states, link rendering.',
+                    'count'       => '7 variants',
+                ],
+                [
+                    'title'       => 'Form',
+                    'route'       => 'design-system.form',
+                    'tag'         => 'x-form.*',
+                    'icon'        => 'fa-solid fa-pen-to-square',
+                    'description' => 'Input, textarea, toggle, checkbox, radio, select, date, color, autocomplete.',
+                    'count'       => '9 components',
+                ],
+                [
+                    'title'       => 'Table',
+                    'route'       => 'design-system.table',
+                    'tag'         => 'x-table.*',
+                    'icon'        => 'fa-solid fa-table',
+                    'description' => 'Table, search-bar, filter, pagination.',
+                    'count'       => '4 components',
+                ],
+                [
+                    'title'       => 'Feedback',
+                    'route'       => 'design-system.feedback',
+                    'tag'         => 'x-feedback.*',
+                    'icon'        => 'fa-solid fa-message',
+                    'description' => 'Alert, badge, toast.',
+                    'count'       => '3 components',
+                ],
+                [
+                    'title'       => 'Overlay',
+                    'route'       => 'design-system.overlay',
+                    'tag'         => 'x-overlay.*',
+                    'icon'        => 'fa-solid fa-layer-group',
+                    'description' => 'Modal, dropdown, dropdown-item, dropdown-divider.',
+                    'count'       => '4 components',
+                ],
+                [
+                    'title'       => 'Nav',
+                    'route'       => 'design-system.nav',
+                    'tag'         => 'x-nav.*',
+                    'icon'        => 'fa-solid fa-bars',
+                    'description' => 'Breadcrumb.',
+                    'count'       => '1 component',
+                ],
             ] as $card)
                 <a href="{{ route($card['route']) }}"
                    class="group rounded-2xl border border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xs p-6 flex flex-col gap-4 hover:border-indigo-200 dark:hover:border-indigo-500/50 hover:shadow-sm transition-all duration-150">

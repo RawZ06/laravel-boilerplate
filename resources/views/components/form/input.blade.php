@@ -26,8 +26,8 @@
             type="{{ $type }}"
             name="{{ $name }}"
             id="{{ $name }}"
-            value="{{ old($name, $value) }}"
-            placeholder="{{ $placeholder }}"
+            value="{{ $name ? old($name, $value) : $value }}"
+            placeholder="{{ strval($placeholder) }}"
             @if($disabled) disabled @endif
             @if($required) required @endif
             {{ $attributes->merge(['class' => '
