@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('breadcrumb')
     <x-nav.breadcrumb :items="[
@@ -9,7 +9,7 @@
 
 @section('content')
 
-    <div class="flex flex-col gap-2 mb-8">
+    <div class="flex flex-col gap-2 mb-8 mx-auto w-full max-w-2xl">
         <h1 class="text-2xl font-bold text-slate-800 dark:text-white">Profile</h1>
         <p class="text-sm text-slate-400">Manage your personal information and password.</p>
     </div>
@@ -72,7 +72,7 @@
                         placeholder="••••••••"
                         required
                         autocomplete="current-password"
-                        :error="$errors->first('current_password')"
+                        :error="$errors->updatePassword->first('current_password')"
                     />
                 </x-form.field>
 
@@ -84,7 +84,7 @@
                         placeholder="••••••••"
                         required
                         autocomplete="new-password"
-                        :error="$errors->first('password')"
+                        :error="$errors->updatePassword->first('password')"
                     />
                 </x-form.field>
 
@@ -96,7 +96,7 @@
                         placeholder="••••••••"
                         required
                         autocomplete="new-password"
-                        :error="$errors->first('password_confirmation')"
+                        :error="$errors->updatePassword->first('password_confirmation')"
                     />
                 </x-form.field>
 
@@ -106,7 +106,31 @@
             </form>
         </div>
 
-        {{-- Account info --}}
+        {{-- Sessions --}}
+        <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6">
+            <h2 class="text-base font-semibold text-slate-800 dark:text-white mb-1">Sessions</h2>
+            <p class="text-sm text-slate-400 mb-6">Revoke your remember token and log out from all other devices.</p>
+
+            <form action="{{ route('auth.profile.logout-others') }}" method="POST" class="flex flex-col gap-5">
+                @csrf
+                <x-form.field label="Current password" for="confirmSessionPassword">
+                    <x-form.input
+                        type="password"
+                        id="confirmSessionPassword"
+                        name="confirmSessionPassword"
+                        placeholder="••••••••"
+                        required
+                        :error="$errors->logoutOthers->first('confirmSessionPassword')"
+                    />
+                </x-form.field>
+
+                <div class="flex justify-end">
+                    <x-button type="submit" variant="outline">Log out other devices</x-button>
+                </div>
+            </form>
+        </div>
+
+        {{-- Account information --}}
         <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6">
             <h2 class="text-base font-semibold text-slate-800 dark:text-white mb-1">Account information</h2>
             <p class="text-sm text-slate-400 mb-6">Read-only details about your account.</p>
@@ -133,6 +157,32 @@
                     </dd>
                 </div>
             </dl>
+        </div>
+
+        {{-- Danger zone --}}
+        <div class="bg-white dark:bg-slate-800 rounded-2xl border border-red-200 dark:border-red-900/30 p-6">
+            <h2 class="text-base font-semibold text-red-600 dark:text-red-400 mb-1">DANGER ZONE</h2>
+            <p class="text-sm text-slate-400 mb-6">Once you delete your account, there is no going back. Please be certain.</p>
+
+            <form action="{{ route('auth.profile.delete') }}" method="POST" class="flex flex-col gap-5">
+                @csrf
+                @method('DELETE')
+
+                <x-form.field label="Confirm with your password" for="confirmDeletePassword">
+                    <x-form.input
+                        type="password"
+                        id="confirmDeletePassword"
+                        name="confirmDeletePassword"
+                        placeholder="••••••••"
+                        required
+                        :error="$errors->deleteAccount->first('confirmDeletePassword')"
+                    />
+                </x-form.field>
+
+                <div class="flex justify-end">
+                    <x-button type="submit" variant="danger">Delete account</x-button>
+                </div>
+            </form>
         </div>
 
     </div>

@@ -142,7 +142,7 @@
                             Back to website
                         </x-overlay.dropdown-item>
 
-                        <x-overlay.dropdown-item :href="route('auth.profile')" icon="fa-solid fa-user">
+                        <x-overlay.dropdown-item :href="route('auth.profile.index')" icon="fa-solid fa-user">
                             Profile
                         </x-overlay.dropdown-item>
 

@@ -12,10 +12,16 @@ Route::group(['as' => 'auth.'], function () {
     Route::get('register', fn() => view('auth.register'))->name('register.index');
     Route::post('register', [AuthController::class, 'register'])->name('register');
     Route::post('login', [AuthController::class, 'login'])->name('login');
+
     Route::middleware('auth')->get('logout', [AuthController::class, 'logout'])->name('logout');
-    Route::middleware('auth')->get('profile', fn() => view('auth.profile'))->name('profile');
-    Route::middleware('auth')->patch('profile', [AuthController::class, 'update'])->name('profile.update');
-    Route::middleware('auth')->patch('password', [AuthController::class, 'password'])->name('profile.password');
+
+    Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth']], function () {
+        Route::get('', fn() => view('auth.profile'))->name('index');
+        Route::patch('', [AuthController::class, 'update'])->name('update');
+        Route::patch('password', [AuthController::class, 'password'])->name('password');
+        Route::post('logout-others', [AuthController::class, 'logoutOthers'])->name('logout-others');
+        Route::delete('account', [AuthController::class, 'deleteAccount'])->name('delete');
+    });
 });
 
 Route::group(['prefix' => 'admin', 'as' => 'backend.', 'middleware' => ['auth', 'admin']], function () {
