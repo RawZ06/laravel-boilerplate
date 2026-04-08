@@ -21,11 +21,8 @@ class MakeModule extends Command
         // 1. Model + Migration
         $this->call('make:model', ['name' => $name, '--migration' => true]);
 
-        // 2. Controller resource
-        $this->call('make:controller', [
-            'name' => "Backend/{$name}Controller",
-            '--resource' => true,
-        ]);
+        // 2. Controller
+        $this->generateController($name);
 
         // 3. Vues Blade
         $this->generateViews($name);
@@ -34,6 +31,29 @@ class MakeModule extends Command
         $this->appendRoute($name);
 
         $this->components->info("Module [{$name}] generated successfully.");
+    }
+
+    private function generateController(string $name): void
+    {
+        $lower = strtolower($name);
+        $plural = Str::plural($lower);
+
+        $path = app_path("Http/Controllers/Backend");
+
+        if (!is_dir($path)) {
+            mkdir($path, 0755, true);
+        }
+
+        $stub = file_get_contents(base_path("stubs/controller.stub"));
+
+        $stub = str_replace(
+            ['{{ module }}', '{{ Module }}', '{{ modules }}'],
+            [$lower, $name, $plural],
+            $stub
+        );
+
+        file_put_contents("{$path}/{$name}Controller.php", $stub);
+        $this->components->task("Creating controller [app/Http/Controllers/Backend/{$name}Controller.php]");
     }
 
     private function generateViews(string $name): void

@@ -12,7 +12,7 @@
     $menu = [
         'Nav' => [
             ['icon' => 'fa-solid fa-gauge', 'label' => 'Dashboard', 'route' => 'backend.index'],
-            ['icon' => 'fa-solid fa-users', 'label' => 'Users', 'route' => 'backend.users.index'],
+            ['icon' => 'fa-solid fa-users', 'label' => 'Users', 'route' => 'backend.users.index']
         ]
     ];
 @endphp
