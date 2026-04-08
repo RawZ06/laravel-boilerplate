@@ -46,7 +46,7 @@ class UserController extends Controller
 
         return redirect()
             ->route('backend.users.index')
-            ->with('success', 'Utilisateur créé avec succès.');
+            ->with('success', 'User created successfully.');
     }
 
     /**
@@ -93,7 +93,7 @@ class UserController extends Controller
 
         return redirect()
             ->route('backend.users.index')
-            ->with('success', 'Utilisateur mis à jour avec succès.');
+            ->with('success', 'User updated successfully.');
     }
 
     /**
@@ -107,6 +107,6 @@ class UserController extends Controller
 
         return redirect()
             ->route('backend.users.index')
-            ->with('success', 'Utilisateur supprimé avec succès.');
+            ->with('success', 'User deleted successfully.');
     }
 }
