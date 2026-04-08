@@ -67,7 +67,7 @@
                                 Profile
                             </x-overlay.dropdown-item>
 
-                            @if(auth()->user()->is_admin)
+                            @if(auth()->user()->isAdmin())
                                 <x-overlay.dropdown-item :href="route('backend.index')" icon="fa-solid fa-gauge">
                                     Dashboard
                                 </x-overlay.dropdown-item>
