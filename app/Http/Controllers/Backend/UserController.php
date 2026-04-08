@@ -36,12 +36,14 @@ class UserController extends Controller
             'name'                  => ['required', 'string', 'max:255'],
             'email'                 => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password'              => ['required', 'string', 'min:8', 'confirmed'],
+            'role'                  => ['required', 'string', 'in:user,admin'],
         ]);
 
         User::create([
             'name'     => $validated['name'],
             'email'    => $validated['email'],
             'password' => Hash::make($validated['password']),
+            'role'     => $validated['role'],
         ]);
 
         return redirect()
@@ -80,10 +82,12 @@ class UserController extends Controller
             'name'     => ['required', 'string', 'max:255'],
             'email'    => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $user->id],
             'password' => ['nullable', 'string', 'min:8', 'confirmed'],
+            'role'     => ['required', 'string', 'in:user,admin'],
         ]);
 
         $user->name  = $validated['name'];
         $user->email = $validated['email'];
+        $user->role  = $validated['role'];
 
         if (!empty($validated['password'])) {
             $user->password = Hash::make($validated['password']);

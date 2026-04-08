@@ -113,6 +113,14 @@
 
             <dl class="flex flex-col gap-4">
                 <div class="flex items-center justify-between py-3 border-b border-slate-100 dark:border-slate-700">
+                    <dt class="text-sm text-slate-500 dark:text-slate-400">Role</dt>
+                    <dd class="text-sm font-medium text-slate-800 dark:text-white">
+                        <x-feedback.badge :variant="auth()->user()->isAdmin() ? 'indigo' : 'gray'">
+                            {{ auth()->user()->role->label() }}
+                        </x-feedback.badge>
+                    </dd>
+                </div>
+                <div class="flex items-center justify-between py-3 border-b border-slate-100 dark:border-slate-700">
                     <dt class="text-sm text-slate-500 dark:text-slate-400">Member since</dt>
                     <dd class="text-sm font-medium text-slate-800 dark:text-white">
                         {{ auth()->user()->created_at->translatedFormat('l j F Y') }}

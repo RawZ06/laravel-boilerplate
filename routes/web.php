@@ -18,7 +18,7 @@ Route::group(['as' => 'auth.'], function () {
     Route::middleware('auth')->patch('password', [AuthController::class, 'password'])->name('profile.password');
 });
 
-Route::group(['prefix' => 'admin', 'as' => 'backend.', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'admin', 'as' => 'backend.', 'middleware' => ['auth', 'admin']], function () {
     includeRouteFiles(__DIR__.'/backend/');
 });
 

@@ -35,6 +35,15 @@
             </div>
 
             <div class="flex flex-col gap-2">
+                <span class="text-sm font-bold uppercase tracking-wide">Role</span>
+                <dd class="text-sm font-medium text-slate-800 dark:text-white">
+                    <x-feedback.badge :variant="$user->isAdmin() ? 'indigo' : 'gray'">
+                        {{ $user->role->label() }}
+                    </x-feedback.badge>
+                </dd>
+            </div>
+
+            <div class="flex flex-col gap-2">
                 <span class="text-sm font-bold uppercase tracking-wide">Password</span>
                 <span>*********</span>
             </div>

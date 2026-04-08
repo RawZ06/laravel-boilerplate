@@ -22,12 +22,20 @@
                 ['key' => 'id', 'label' => 'ID', 'sortable' => false, 'searchable' => false],
                 ['key' => 'name',  'label' => 'Name',  'sortable' => false, 'searchable' => false],
                 ['key' => 'email', 'label' => 'Email', 'sortable' => false, 'searchable' => false],
+                ['key' => 'role', 'label' => 'Role', 'sortable' => false, 'searchable' => false],
                 ['key' => 'created_at',  'label' => 'Created At',  'sortable' => false, 'searchable' => false],
                 ['key' => 'updated_at', 'label' => 'Updated At', 'sortable' => false, 'searchable' => false],
                 ['key' => 'action', 'label' => 'Action', 'sortable' => false, 'searchable' => false],
             ]"
         >
             <x-slot:rowTemplate>
+                <x-table.row column="role">
+                    @verbatim
+                        <x-feedback.badge :variant="$row->isAdmin() ? 'indigo' : 'gray'">
+                            {{ $row->role->label() }}
+                        </x-feedback.badge>
+                    @endverbatim
+                </x-table.row>
                 <x-table.row column="action">
                     @verbatim
                         <x-overlay.dropdown align="right">

@@ -22,6 +22,7 @@
                 icon="fa-solid fa-user"
                 :value="old('name')"
                 :error="$errors->first('name')"
+                required
             />
 
             <x-form.input
@@ -33,6 +34,7 @@
                 hint="We will never share your email."
                 :value="old('email')"
                 :error="$errors->first('email')"
+                required
             />
 
             <x-form.input
@@ -42,6 +44,7 @@
                 placeholder="••••••••"
                 icon="fa-solid fa-lock"
                 :error="$errors->first('password')"
+                required
             />
 
             <x-form.input
@@ -51,6 +54,20 @@
                 placeholder="••••••••"
                 icon="fa-solid fa-lock"
                 :error="$errors->first('password_confirmation')"
+                required
+            />
+
+            <x-form.select
+                name="role"
+                label="Role"
+                placeholder="Select a role"
+                :options="[
+                    ['value' => 'user', 'label' => 'User'],
+                    ['value' => 'admin', 'label' => 'Administrator'],
+                ]"
+                :selected="old('role', 'user')"
+                :error="$errors->first('role')"
+                required
             />
 
             <div class="flex justify-end gap-3">
