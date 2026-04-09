@@ -24,7 +24,7 @@ class MakeModule extends Command
         // 2. Controller
         $this->generateController($name);
 
-        // 3. Vues Blade
+        // 3. Blade Views
         $this->generateViews($name);
 
         // 4. Route
@@ -64,7 +64,7 @@ class MakeModule extends Command
         $views = ['index', 'create', 'edit', 'show'];
         $path = resource_path("views/backend/{$plural}");
 
-        // Créer le dossier
+        // Create directory
         if (!is_dir($path)) {
             mkdir($path, 0755, true);
         }
@@ -72,7 +72,7 @@ class MakeModule extends Command
         foreach ($views as $view) {
             $stub = file_get_contents(base_path("stubs/views/{$view}.stub"));
 
-            // Remplacer les placeholders
+            // Replace placeholders
             $stub = str_replace(
                 ['{{ module }}', '{{ Module }}', '{{ modules }}'],
                 [$lower, $name, $plural],

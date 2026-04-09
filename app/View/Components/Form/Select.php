@@ -14,7 +14,7 @@ class Select extends Component
     public function __construct(
         public ?string $name        = null,
         public ?string $label       = null,
-        public ?string $placeholder = 'Sélectionner...',
+        public ?string $placeholder = 'Select...',
         public ?string $hint        = null,
         public ?string $error       = null,
         public array   $options     = [],

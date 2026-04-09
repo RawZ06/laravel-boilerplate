@@ -13,6 +13,9 @@
         'Nav' => [
             ['icon' => 'fa-solid fa-gauge', 'label' => 'Dashboard', 'route' => 'backend.index'],
             ['icon' => 'fa-solid fa-users', 'label' => 'Users', 'route' => 'backend.users.index']
+        ],
+        'System' => [
+            ['icon' => 'fa-solid fa-cog', 'label' => 'Settings', 'route' => 'backend.settings.index']
         ]
     ];
 @endphp
@@ -89,7 +92,7 @@
             <header id="header" class="h-12 text-xl lg:text-base flex flex-row items-center bg-white dark:bg-slate-900 shadow-sm dark:shadow-slate-800/50">
 
                 <!-- Mobile menu button -->
-                <button @click="navOpen = true" class="lg:hidden px-4 py-2 text-gray-800 dark:text-gray-200">
+                <button @click="navOpen = true" class="lg:hidden px-4 py-2 text-gray-800 dark:text-gray-200" aria-label="Open menu">
                     <svg class="w-5 h-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                          viewBox="0 0 24 24" stroke="currentColor">
                         <path d="M4 6h16M4 12h16M4 18h16"></path>
@@ -101,7 +104,7 @@
                     <div class="flex items-center h-full px-2">
                         <x-overlay.dropdown align="right">
                             <x-slot:trigger>
-                                <x-button variant="ghost">
+                                <x-button variant="ghost" aria-label="Toggle theme">
                                     <i x-show="theme === 'light'" class="fa-solid fa-sun text-lg" x-cloak></i>
                                     <i x-show="theme === 'dark'" class="fa-solid fa-moon text-lg" x-cloak></i>
                                     <i x-show="theme === 'system'" class="fa-solid fa-desktop text-lg" x-cloak></i>

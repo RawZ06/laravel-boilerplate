@@ -13,7 +13,7 @@ class SearchBar extends Component
      */
     public function __construct(
         public string  $name        = 'q',
-        public ?string $placeholder = 'Rechercher…',
+        public ?string $placeholder = 'Search…',
         public ?string $value       = null,
     ) {
         $this->value = $value ?? request($this->name, '');

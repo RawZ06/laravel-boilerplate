@@ -6,12 +6,12 @@
             @php $isLast = $index === array_key_last($items); @endphp
 
             <li class="flex items-center gap-1">
-                {{-- Séparateur --}}
+                {{-- Separator --}}
                 @if($index > 0)
                     <i class="fa-solid fa-chevron-right text-[10px] text-gray-300 dark:text-slate-700 mx-1"></i>
                 @endif
 
-                {{-- Lien ou texte --}}
+                {{-- Link or text --}}
                 @if(!$isLast && isset($item['url']))
                     <a
                         href="{{ $item['url'] }}"

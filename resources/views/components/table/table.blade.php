@@ -1,12 +1,12 @@
 @props([
     'id'           => 'table',
-    'emptyMessage' => 'Aucun résultat.',
+    'emptyMessage' => 'No results found.',
     'striped'      => false,
 ])
 
 <div class="rounded-2xl border border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xs overflow-hidden">
 
-    {{-- Toolbar (optionnel) --}}
+    {{-- Toolbar (optional) --}}
     @if(isset($toolbar))
         <div class="flex items-center justify-end gap-3 flex-wrap px-4 py-3 border-b border-gray-100 dark:border-slate-800">
             {{ $toolbar }}
@@ -53,21 +53,43 @@
                                     @foreach(request()->except(["{$id}_search_{$col['key']}", 'page']) as $k => $v)
                                         <input type="hidden" name="{{ $k }}" value="{{ $v }}">
                                     @endforeach
-                                    <input
-                                        type="text"
-                                        name="{{ $id }}_search_{{ $col['key'] }}"
-                                        value="{{ request("{$id}_search_{$col['key']}") }}"
-                                        placeholder="Filter…"
-                                        class="w-full h-7 px-2.5 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900
-                                                   text-xs text-gray-700 dark:text-slate-300 placeholder-gray-300 dark:placeholder-slate-600
-                                                   focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
-                                    />
+
+                                    @if(!empty($col['options']))
+                                        <select
+                                            name="{{ $id }}_search_{{ $col['key'] }}"
+                                            onchange="this.form.submit()"
+                                            class="w-full h-7 px-2 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900
+                                       text-xs text-gray-700 dark:text-slate-300
+                                       focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+                                        >
+                                            <option value="">All</option>
+                                            @foreach($col['options'] as $optValue => $optLabel)
+                                                <option
+                                                    value="{{ $optValue }}"
+                                                    {{ request("{$id}_search_{$col['key']}") === (string) $optValue ? 'selected' : '' }}
+                                                >
+                                                    {{ $optLabel }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    @else
+                                        <input
+                                            type="text"
+                                            name="{{ $id }}_search_{{ $col['key'] }}"
+                                            value="{{ request("{$id}_search_{$col['key']}") }}"
+                                            placeholder="Filter…"
+                                            class="w-full h-7 px-2.5 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900
+                                       text-xs text-gray-700 dark:text-slate-300 placeholder-gray-300 dark:placeholder-slate-600
+                                       focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+                                        />
+                                    @endif
                                 </form>
                             @endif
                         </th>
                     @endforeach
                 </tr>
             @endif
+
             </thead>
 
             <tbody class="divide-y divide-gray-50 dark:divide-slate-800">

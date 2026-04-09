@@ -5,7 +5,7 @@
     {{-- Info --}}
     <span class="text-xs text-gray-400 dark:text-slate-500">
         {{ $paginator->firstItem() }}–{{ $paginator->lastItem() }}
-        sur {{ number_format($paginator->total()) }} résultats
+        of {{ number_format($paginator->total()) }} results
     </span>
 
     <div class="flex items-center gap-1">
@@ -62,11 +62,13 @@
         @endif
 
         {{-- Per page --}}
-        <form method="GET" id="per-page-form" class="ml-3">
+        <form method="GET" id="per-page-form" class="ml-3 flex items-center">
             @foreach(request()->except(['per_page', 'page']) as $key => $value)
                 <input type="hidden" name="{{ $key }}" value="{{ $value }}">
             @endforeach
+            <label for="per_page_select" class="sr-only">Results per page</label>
             <select
+                id="per_page_select"
                 name="per_page"
                 onchange="this.closest('form').submit()"
                 class="h-8 pl-3 pr-7 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-gray-700 dark:text-slate-300

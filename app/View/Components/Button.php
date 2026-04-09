@@ -19,7 +19,7 @@ class Button extends Component
         public bool    $disabled = false,
         public ?string $icon     = null,        // fa class ex: "fa-solid fa-plus"
         public string  $iconPos  = 'left',      // left | right
-        public ?string $href     = null,        // si défini, render un <a>
+        public ?string $href     = null,        // if defined, render an <a>
     ) {}
 
     /**

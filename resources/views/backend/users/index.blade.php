@@ -8,11 +8,11 @@
 @endsection
 
 @section('content')
-    <div class="flex flex-col gap-2 container max-w-7xl mx-auto">
+    <div class="flex flex-col gap-4 container max-w-7xl mx-auto">
         <h1 class="text-2xl font-bold">User</h1>
 
-        <div class="flex justify-end">
-            <x-button href="{{ route('backend.users.create') }}" icon="fa-solid fa-user-plus">Create User</x-button>
+        <div class="flex justify-end items-center">
+            <x-table.search-bar name="q" placeholder="Search user..." />
         </div>
 
         <x-table
@@ -20,9 +20,9 @@
             :rows="$users"
             :columns="[
                 ['key' => 'id', 'label' => 'ID', 'sortable' => false, 'searchable' => false],
-                ['key' => 'name',  'label' => 'Name',  'sortable' => false, 'searchable' => false],
-                ['key' => 'email', 'label' => 'Email', 'sortable' => false, 'searchable' => false],
-                ['key' => 'role', 'label' => 'Role', 'sortable' => false, 'searchable' => false],
+                ['key' => 'name',  'label' => 'Name',  'sortable' => false, 'searchable' => true],
+                ['key' => 'email', 'label' => 'Email', 'sortable' => false, 'searchable' => true],
+                ['key' => 'role', 'label' => 'Role', 'sortable' => false, 'searchable' => true, 'options' => ['admin' => 'Admin', 'user' => 'User']],
                 ['key' => 'created_at',  'label' => 'Created At',  'sortable' => false, 'searchable' => false],
                 ['key' => 'updated_at', 'label' => 'Updated At', 'sortable' => false, 'searchable' => false],
                 ['key' => 'action', 'label' => 'Action', 'sortable' => false, 'searchable' => false],
@@ -40,7 +40,7 @@
                     @verbatim
                         <x-overlay.dropdown align="right">
                             <x-slot:trigger>
-                                <x-button variant="ghost">
+                                <x-button variant="ghost" aria-label="Actions">
                                     <i class="fa-solid fa-solid fa-ellipsis-vertical text-xs"></i>
                                 </x-button>
                             </x-slot:trigger>
@@ -92,5 +92,11 @@
                 </x-table.row>
             </x-slot:rowTemplate>
         </x-table>
+
+
+
+        <div class="flex justify-end">
+            <x-button href="{{ route('backend.users.create') }}" icon="fa-solid fa-user-plus">Create User</x-button>
+        </div>
     </div>
 @endsection

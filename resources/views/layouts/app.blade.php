@@ -30,7 +30,7 @@
                     <!-- Theme switcher -->
                     <x-overlay.dropdown align="right">
                         <x-slot:trigger>
-                            <x-button variant="ghost">
+                            <x-button variant="ghost" aria-label="Toggle theme">
                                 <i x-show="theme === 'light'" class="fa-solid fa-sun text-lg" x-cloak></i>
                                 <i x-show="theme === 'dark'" class="fa-solid fa-moon text-lg" x-cloak></i>
                                 <i x-show="theme === 'system'" class="fa-solid fa-desktop text-lg" x-cloak></i>

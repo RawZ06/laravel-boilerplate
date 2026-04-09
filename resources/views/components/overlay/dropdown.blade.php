@@ -11,7 +11,7 @@
         {{ $trigger }}
     </div>
 
-    {{-- Panel téléporté dans body --}}
+    {{-- Panel teleported into body --}}
     <template x-teleport="body">
         <div
             x-show="open"

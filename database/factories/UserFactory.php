@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Enums\UserRole;
 use App\Models\User;
+use Couchbase\Role;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -28,7 +30,8 @@ class UserFactory extends Factory
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('admin'),
+            'password' => static::$password ??= Hash::make(fake()->password(8)),
+            'role' => fake()->randomElement(UserRole::cases()),
             'remember_token' => Str::random(10),
         ];
     }

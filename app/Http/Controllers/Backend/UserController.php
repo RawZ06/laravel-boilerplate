@@ -12,9 +12,11 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::paginate(10)->sortBy('id');
+        $users = User::filter($request->all(), 'users_table')
+            ->latest()
+            ->paginate(10);
 
         return view('backend.users.index', compact('users'));
     }

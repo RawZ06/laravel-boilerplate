@@ -2,7 +2,7 @@
     'name'        => '',
     'options'     => [],
     'label'       => null,
-    'placeholder' => 'Tous',
+    'placeholder' => 'All',
     'currentValue' => '',
 ])
 

@@ -22,13 +22,13 @@ class Table extends Component
         array         $columns      = [],
         public bool   $striped      = false,
         public string $id           = 'table',
-        public ?string $emptyMessage = 'Aucun résultat.',
+        public ?string $emptyMessage = 'No results found.',
     ) {
         $this->isPaginated = $rows instanceof LengthAwarePaginator;
         $this->paginator   = $this->isPaginated ? $rows : null;
         $this->rows        = $this->isPaginated ? collect($rows->items()) : collect($rows);
 
-        // Tri préfixé par id pour éviter la synchro entre tableaux
+        // Sorting prefixed by id to avoid synchronization between tables
         $this->currentSort = request("{$id}_sort", '');
         $this->currentDir  = request("{$id}_dir", 'asc');
 
