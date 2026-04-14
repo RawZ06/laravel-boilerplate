@@ -6,6 +6,9 @@ use App\Models\User;
 use Auth;
 use Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rules\Password as PasswordRule;
 
 class AuthController extends Controller
 {
@@ -22,7 +25,7 @@ class AuthController extends Controller
             'password' => $validated['password'],
         ], $request->boolean('remember'))) {
             $request->session()->regenerate();
-            return redirect()->intended('/admin');
+            return redirect()->intended('/');
         }
 
         return back()->withErrors([
@@ -55,7 +58,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect('/admin');
+        return redirect('/');
     }
 
     public function update(Request $request)
@@ -133,5 +136,52 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/login')->with('success', 'Your account has been deleted');
+    }
+
+    public function forgotPasswordIndex()
+    {
+        return view('auth.forgot-password');
+    }
+
+    public function forgotPasswordStore(Request $request)
+    {
+        $request->validate(['email' => 'required|email']);
+
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+
+        return $status === Password::RESET_LINK_SENT
+            ? back()->with('status', __($status))
+            : back()->withErrors(['email' => __($status)]);
+    }
+
+    public function resetPasswordIndex(Request $request, $token)
+    {
+        return view('auth.reset-password', ['token' => $token, 'email' => $request->email]);
+    }
+
+    public function resetPasswordStore(Request $request)
+    {
+        $request->validate([
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => ['required', 'confirmed', PasswordRule::defaults()],
+        ]);
+
+        $status = Password::reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function ($user, $password) {
+                $user->forceFill([
+                    'password' => Hash::make($password)
+                ])->setRememberToken(Str::random(60));
+
+                $user->save();
+            }
+        );
+
+        return $status === Password::PASSWORD_RESET
+            ? redirect()->route('auth.index')->with('status', __($status))
+            : back()->withErrors(['email' => [__($status)]]);
     }
 }

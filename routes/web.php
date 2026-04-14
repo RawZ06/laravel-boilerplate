@@ -15,6 +15,11 @@ Route::group(['as' => 'auth.'], function () {
 
     Route::middleware('auth')->get('logout', [AuthController::class, 'logout'])->name('logout');
 
+    Route::get('forgot-password', [AuthController::class, 'forgotPasswordIndex'])->name('password.request');
+    Route::post('forgot-password', [AuthController::class, 'forgotPasswordStore'])->name('password.email');
+    Route::get('reset-password/{token}', [AuthController::class, 'resetPasswordIndex'])->name('password.reset');
+    Route::post('reset-password', [AuthController::class, 'resetPasswordStore'])->name('password.update');
+
     Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth']], function () {
         Route::get('', fn() => view('auth.profile'))->name('index');
         Route::patch('', [AuthController::class, 'update'])->name('update');

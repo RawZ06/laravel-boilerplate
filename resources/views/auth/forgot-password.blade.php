@@ -34,8 +34,8 @@
                     <span class="font-semibold text-lg text-slate-800 dark:text-white">{{ config('app.name', 'Laravel') }}</span>
                 </div>
 
-                <h1 class="text-2xl font-semibold text-slate-800 dark:text-white mb-1">Welcome back 👋</h1>
-                <p class="text-slate-500 dark:text-slate-400 text-sm mb-8">Sign in to your account.</p>
+                <h1 class="text-2xl font-semibold text-slate-800 dark:text-white mb-1">Forgot password? 🔒</h1>
+                <p class="text-slate-500 dark:text-slate-400 text-sm mb-8">No problem. Just let us know your email address and we will email you a password reset link.</p>
 
                 {{-- Status alert --}}
                 @if (session('status'))
@@ -59,7 +59,7 @@
                     </div>
                 @endif
 
-                <form method="POST" action="{{ route('auth.login') }}" class="space-y-5">
+                <form method="POST" action="{{ route('auth.password.email') }}" class="space-y-5">
                     @csrf
 
                     {{-- Email --}}
@@ -77,47 +77,20 @@
                         />
                     </x-form.field>
 
-                    {{-- Password --}}
-                    <x-form.field for="password">
-                        <x-slot name="label">
-                            <div class="flex items-center justify-between mb-1.5">
-                                <label for="password" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Password</label>
-                                <a href="{{ route('auth.password.request') }}" class="text-xs text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition">
-                                    Forgot password?
-                                </a>
-                            </div>
-                        </x-slot>
-                        <x-form.input
-                            type="password"
-                            id="password"
-                            name="password"
-                            placeholder="••••••••"
-                            required
-                            autocomplete="current-password"
-                            :error="$errors->first('password')"
-                        />
-                    </x-form.field>
-
-                    {{-- Remember me --}}
-                    <x-form.checkbox
-                        id="remember"
-                        name="remember"
-                        label="Remember me"
-                    />
-
                     {{-- Submit --}}
                     <x-button
                         type="submit"
                         class="w-full"
                     >
-                        Sign in
+                        Email Password Reset Link
                     </x-button>
 
                 </form>
+
                 <p class="mt-6 text-center text-sm text-slate-500 dark:text-slate-400">
-                    Don't have an account?
-                    <a href="{{ route('auth.register') }}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition font-medium">
-                        Create one
+                    Remembered your password?
+                    <a href="{{ route('auth.index') }}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition font-medium">
+                        Back to login
                     </a>
                 </p>
             </div>

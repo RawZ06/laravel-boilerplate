@@ -34,17 +34,8 @@
                     <span class="font-semibold text-lg text-slate-800 dark:text-white">{{ config('app.name', 'Laravel') }}</span>
                 </div>
 
-                <h1 class="text-2xl font-semibold text-slate-800 dark:text-white mb-1">Welcome back 👋</h1>
-                <p class="text-slate-500 dark:text-slate-400 text-sm mb-8">Sign in to your account.</p>
-
-                {{-- Status alert --}}
-                @if (session('status'))
-                    <div class="mb-6">
-                        <x-feedback.alert variant="success" :dismissible="false">
-                            {{ session('status') }}
-                        </x-feedback.alert>
-                    </div>
-                @endif
+                <h1 class="text-2xl font-semibold text-slate-800 dark:text-white mb-1">Reset password 🔑</h1>
+                <p class="text-slate-500 dark:text-slate-400 text-sm mb-8">Choose a new password for your account.</p>
 
                 {{-- Error alert --}}
                 @if ($errors->any())
@@ -59,8 +50,10 @@
                     </div>
                 @endif
 
-                <form method="POST" action="{{ route('auth.login') }}" class="space-y-5">
+                <form method="POST" action="{{ route('auth.password.update') }}" class="space-y-5">
                     @csrf
+
+                    <input type="hidden" name="token" value="{{ $token }}">
 
                     {{-- Email --}}
                     <x-form.field label="Email address" for="email">
@@ -68,58 +61,52 @@
                             type="email"
                             id="email"
                             name="email"
-                            :value="old('email')"
+                            :value="old('email', $email)"
                             placeholder="you@example.com"
                             required
-                            autofocus
+                            readonly
                             autocomplete="email"
                             :error="$errors->first('email')"
                         />
                     </x-form.field>
 
                     {{-- Password --}}
-                    <x-form.field for="password">
-                        <x-slot name="label">
-                            <div class="flex items-center justify-between mb-1.5">
-                                <label for="password" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Password</label>
-                                <a href="{{ route('auth.password.request') }}" class="text-xs text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition">
-                                    Forgot password?
-                                </a>
-                            </div>
-                        </x-slot>
+                    <x-form.field label="New password" for="password">
                         <x-form.input
                             type="password"
                             id="password"
                             name="password"
                             placeholder="••••••••"
                             required
-                            autocomplete="current-password"
+                            autofocus
+                            autocomplete="new-password"
                             :error="$errors->first('password')"
                         />
                     </x-form.field>
 
-                    {{-- Remember me --}}
-                    <x-form.checkbox
-                        id="remember"
-                        name="remember"
-                        label="Remember me"
-                    />
+                    {{-- Password confirmation --}}
+                    <x-form.field label="Confirm new password" for="password_confirmation">
+                        <x-form.input
+                            type="password"
+                            id="password_confirmation"
+                            name="password_confirmation"
+                            placeholder="••••••••"
+                            required
+                            autocomplete="new-password"
+                            :error="$errors->first('password_confirmation')"
+                        />
+                    </x-form.field>
 
                     {{-- Submit --}}
                     <x-button
                         type="submit"
                         class="w-full"
                     >
-                        Sign in
+                        Reset Password
                     </x-button>
 
                 </form>
-                <p class="mt-6 text-center text-sm text-slate-500 dark:text-slate-400">
-                    Don't have an account?
-                    <a href="{{ route('auth.register') }}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition font-medium">
-                        Create one
-                    </a>
-                </p>
+
             </div>
         </div>
 
