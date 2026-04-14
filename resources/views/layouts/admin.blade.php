@@ -13,9 +13,6 @@
         'Nav' => [
             ['icon' => 'fa-solid fa-gauge', 'label' => 'Dashboard', 'route' => 'backend.index'],
             ['icon' => 'fa-solid fa-users', 'label' => 'Users', 'route' => 'backend.users.index']
-        ],
-        'System' => [
-            ['icon' => 'fa-solid fa-cog', 'label' => 'Settings', 'route' => 'backend.settings.index']
         ]
     ];
 @endphp
