@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Auth;
 use Hash;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password as PasswordRule;
+use Illuminate\Auth\Events\Registered;
 
 class AuthController extends Controller
 {
@@ -56,9 +58,11 @@ class AuthController extends Controller
             'password' => Hash::make($validated['password']),
         ]);
 
+        event(new Registered($user));
+
         Auth::login($user);
 
-        return redirect('/');
+        return redirect()->route('verification.notice');
     }
 
     public function update(Request $request)
@@ -70,8 +74,15 @@ class AuthController extends Controller
 
         $user = Auth::user();
         $user->name  = $validated['name'];
-        $user->email = $validated['email'];
-        $user->save();
+
+        if ($user->isDirty('email')) {
+            $user->email_verified_at = null;
+            $user->email = $validated['email'];
+            $user->save();
+            $user->sendEmailVerificationNotification();
+        } else {
+            $user->save();
+        }
 
         return redirect()->back()->with('success', 'Profile updated successfully');
     }
@@ -183,5 +194,30 @@ class AuthController extends Controller
         return $status === Password::PASSWORD_RESET
             ? redirect()->route('auth.index')->with('status', __($status))
             : back()->withErrors(['email' => [__($status)]]);
+    }
+
+    public function verifyEmailIndex(Request $request)
+    {
+        return $request->user()->hasVerifiedEmail()
+            ? redirect()->intended('/')
+            : view('auth.verify-email');
+    }
+
+    public function verifyEmailStore(EmailVerificationRequest $request)
+    {
+        $request->fulfill();
+
+        return redirect()->intended('/')->with('success', 'Email verified successfully');
+    }
+
+    public function verifyEmailResend(Request $request)
+    {
+        if ($request->user()->hasVerifiedEmail()) {
+            return redirect()->intended('/');
+        }
+
+        $request->user()->sendEmailVerificationNotification();
+
+        return back()->with('status', 'verification-link-sent');
     }
 }

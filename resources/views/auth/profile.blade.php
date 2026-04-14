@@ -16,6 +16,28 @@
 
     <div class="flex flex-col gap-6 w-full max-w-2xl mx-auto">
 
+        {{-- Email verification --}}
+        @if (!auth()->user()->hasVerifiedEmail())
+            <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-900/30 rounded-2xl p-6">
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-envelope-circle-check text-amber-600 dark:text-amber-400"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h2 class="text-base font-semibold text-amber-900 dark:text-amber-100 mb-1">Verify your email address</h2>
+                        <p class="text-sm text-amber-700 dark:text-amber-300 mb-4">Your email address is not yet verified. Please verify it to ensure full access to all features.</p>
+
+                        <form action="{{ route('verification.send') }}" method="POST">
+                            @csrf
+                            <x-button type="submit" variant="outline" class="!border-amber-200 dark:!border-amber-800 !text-amber-700 dark:!text-amber-300 hover:!bg-amber-100 dark:hover:!bg-amber-900/50">
+                                Resend verification email
+                            </x-button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        @endif
+
         {{-- General information --}}
         <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6">
             <h2 class="text-base font-semibold text-slate-800 dark:text-white mb-1">General information</h2>
@@ -142,6 +164,20 @@
                         <x-feedback.badge :variant="auth()->user()->isAdmin() ? 'indigo' : 'gray'">
                             {{ auth()->user()->role->label() }}
                         </x-feedback.badge>
+                    </dd>
+                </div>
+                <div class="flex items-center justify-between py-3 border-b border-slate-100 dark:border-slate-700">
+                    <dt class="text-sm text-slate-500 dark:text-slate-400">Email status</dt>
+                    <dd class="text-sm font-medium">
+                        @if (auth()->user()->hasVerifiedEmail())
+                            <x-feedback.badge variant="success">
+                                Verified
+                            </x-feedback.badge>
+                        @else
+                            <x-feedback.badge variant="warning">
+                                Not verified
+                            </x-feedback.badge>
+                        @endif
                     </dd>
                 </div>
                 <div class="flex items-center justify-between py-3 border-b border-slate-100 dark:border-slate-700">

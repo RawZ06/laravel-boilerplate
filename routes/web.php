@@ -29,6 +29,12 @@ Route::group(['as' => 'auth.'], function () {
     });
 });
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('verify-email', [AuthController::class, 'verifyEmailIndex'])->name('verification.notice');
+    Route::get('verify-email/{id}/{hash}', [AuthController::class, 'verifyEmailStore'])->middleware(['signed', 'throttle:6,1'])->name('verification.verify');
+    Route::post('email/verification-notification', [AuthController::class, 'verifyEmailResend'])->middleware('throttle:6,1')->name('verification.send');
+});
+
 Route::group(['prefix' => 'admin', 'as' => 'backend.', 'middleware' => ['auth', 'admin']], function () {
     includeRouteFiles(__DIR__.'/backend/');
 });
