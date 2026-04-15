@@ -12,15 +12,20 @@ use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Traits\Auditable;
 
 #[Fillable(['name', 'email', 'password', 'role'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable implements MustVerifyEmail
 {
     /** @use HasFactory<UserFactory> */
-    use HasFactory, Notifiable, Filterable;
+    use HasFactory, Notifiable, Filterable, Auditable;
 
     protected array $searchable = ['name', 'email'];
+
+    protected array $unauditableAttributes = ['remember_token', 'updated_at', 'created_at'];
+
+    protected array $hiddenAuditAttributes = ['password'];
 
     protected array $exactFilters = ['role', 'status', 'is_active'];
 
