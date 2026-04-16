@@ -75,7 +75,7 @@
                         <span class="text-xs text-gray-400">4 rows, resizable</span>
                     </div>
                     <div class="flex-1">
-                        <x-form.textarea name="ex_ta" label="Description" placeholder="Describe your project…"/>
+                        <x-form.text-area name="ex_ta" label="Description" placeholder="Describe your project…"/>
                     </div>
                 </div>
                 <div class="flex items-start justify-between px-6 py-4 gap-8">
@@ -84,7 +84,7 @@
                         <span class="text-xs text-gray-400">Fixed height</span>
                     </div>
                     <div class="flex-1">
-                        <x-form.textarea name="ex_ta2" :rows="3" :resize="false" placeholder="Short note…"
+                        <x-form.text-area name="ex_ta2" :rows="3" :resize="false" placeholder="Short note…"
                                          hint="Maximum 200 characters."/>
                     </div>
                 </div>
