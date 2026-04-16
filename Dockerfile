@@ -7,7 +7,7 @@ COPY . .
 RUN npm run build
 
 # -- Stage 2: PHP Application (Backend) --
-FROM php:8.3-fpm-alpine
+FROM php:8.4-fpm-alpine
 
 # Arguments
 ARG user=laravel

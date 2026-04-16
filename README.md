@@ -51,7 +51,7 @@ This boilerplate provides a solid foundation for your next Laravel application. 
 
 ### Prerequisites
 
-- PHP 8.3 or higher
+- PHP 8.4 or higher
 - Node.js & NPM/PNPM
 - SQLite (default) or any other supported database
 
