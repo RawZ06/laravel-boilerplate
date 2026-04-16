@@ -100,4 +100,35 @@ class AdminAccessTest extends TestCase
         $response->assertSee('Role');
         $response->assertSee($user->role->label());
     }
+
+    public function test_admin_can_view_user_edit_page(): void
+    {
+        $admin = User::factory()->create(['role' => UserRole::ADMIN]);
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($admin)->get(route('backend.users.edit', $user));
+
+        $response->assertStatus(200);
+        $response->assertSee($user->name);
+    }
+
+    public function test_admin_can_delete_user(): void
+    {
+        $admin = User::factory()->create(['role' => UserRole::ADMIN]);
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($admin)->delete(route('backend.users.destroy', $user));
+
+        $response->assertRedirect(route('backend.users.index'));
+        $this->assertDatabaseMissing('users', ['id' => $user->id]);
+    }
+
+    public function test_admin_can_view_user_create_page(): void
+    {
+        $admin = User::factory()->create(['role' => UserRole::ADMIN]);
+
+        $response = $this->actingAs($admin)->get(route('backend.users.create'));
+
+        $response->assertStatus(200);
+    }
 }

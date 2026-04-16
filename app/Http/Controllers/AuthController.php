@@ -76,10 +76,10 @@ class AuthController extends Controller
         $user = Auth::user();
         $user->name   = $validated['name'];
         $user->avatar = $validated['avatar'];
+        $user->email = $validated['email'];
 
         if ($user->isDirty('email')) {
             $user->email_verified_at = null;
-            $user->email = $validated['email'];
             $user->save();
             $user->sendEmailVerificationNotification();
         } else {

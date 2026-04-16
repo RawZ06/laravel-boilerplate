@@ -44,6 +44,9 @@ RUN adduser -G www-data -u $uid -h /home/$user -D $user
 # Set working directory
 WORKDIR /var/www
 
+# Fix permissions for the working directory
+RUN chown $user:www-data /var/www
+
 # Copy application source
 COPY --chown=$user:www-data . .
 
