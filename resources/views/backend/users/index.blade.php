@@ -20,6 +20,7 @@
             :rows="$users"
             :columns="[
                 ['key' => 'id', 'label' => 'ID', 'sortable' => false, 'searchable' => false],
+                ['key' => 'avatar', 'label' => '', 'sortable' => false, 'searchable' => false],
                 ['key' => 'name',  'label' => 'Name',  'sortable' => false, 'searchable' => true],
                 ['key' => 'email', 'label' => 'Email', 'sortable' => false, 'searchable' => true],
                 ['key' => 'role', 'label' => 'Role', 'sortable' => false, 'searchable' => true, 'options' => ['admin' => 'Admin', 'user' => 'User']],
@@ -29,6 +30,12 @@
             ]"
         >
             <x-slot:rowTemplate>
+                <x-table.row column="avatar">
+                    @verbatim
+                        <img class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800 object-cover"
+                             src="{{ $row->avatar ?? 'https://api.dicebear.com/7.x/adventurer/svg?seed=' . $row->name }}" alt="User avatar">
+                    @endverbatim
+                </x-table.row>
                 <x-table.row column="role">
                     @verbatim
                         <x-feedback.badge :variant="$row->isAdmin() ? 'indigo' : 'gray'">

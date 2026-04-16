@@ -36,7 +36,7 @@
                         @if($row->user)
                             <div class="flex items-center gap-2">
                                 <div class="w-6 h-6 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center overflow-hidden">
-                                    <img src="https://api.dicebear.com/7.x/adventurer/svg?seed={{ $row->user->email }}" alt="avatar">
+                                    <img src="{{ $row->user->avatar ?? 'https://api.dicebear.com/7.x/adventurer/svg?seed=' . $row->user->name }}" alt="avatar" class="object-cover w-full h-full">
                                 </div>
                                 <span class="text-sm font-medium">{{ $row->user->name }}</span>
                             </div>

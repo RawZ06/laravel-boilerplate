@@ -10,7 +10,9 @@
     'required'    => false,
 ])
 
-<div class="flex flex-col gap-1.5" x-data="select({ selected: '{{ $selected }}', options: {{ Js::from($options) }} })" @click.outside="open = false">
+<div class="flex flex-col gap-1.5" x-data="select({ selected: '{{ $selected }}', options: {{ Js::from($options) }} })" @click.outside="open = false" {{ $attributes }}
+    x-init="$watch('selected', value => $dispatch('input', value))"
+    @set-selected.window="if ($event.detail.name === '{{ $name }}') { selected = $event.detail.value }">
 
     @if($label)
         <label class="text-sm font-medium text-gray-700 dark:text-gray-300">

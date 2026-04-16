@@ -47,6 +47,8 @@
                 @csrf
                 @method('PATCH')
 
+                <x-form.avatar-picker :value="auth()->user()->avatar" />
+
                 <x-form.field label="Username" for="name">
                     <x-form.input
                         type="text"

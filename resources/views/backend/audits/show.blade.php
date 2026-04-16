@@ -29,7 +29,11 @@
 
                 <div class="grid grid-cols-3 gap-1">
                     <span class="text-xs text-slate-400">User</span>
-                    <span class="col-span-2 text-sm text-slate-700 dark:text-slate-300">{{ $audit->user?->name ?? 'Guest' }}</span>
+                    <div class="col-span-2 flex items-center gap-2">
+                        <img class="w-6 h-6 rounded-full bg-slate-200 dark:bg-slate-800 object-cover"
+                             src="{{ $audit->user?->avatar ?? 'https://api.dicebear.com/7.x/adventurer/svg?seed=' . ($audit->user?->name ?? 'Guest') }}" alt="User avatar">
+                        <span class="text-sm text-slate-700 dark:text-slate-300">{{ $audit->user?->name ?? 'Guest' }}</span>
+                    </div>
                 </div>
 
                 <div class="grid grid-cols-3 gap-1">

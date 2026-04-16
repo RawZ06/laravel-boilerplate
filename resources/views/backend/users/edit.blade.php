@@ -27,6 +27,8 @@
             @csrf
             @method('PUT')
 
+            <x-form.avatar-picker :value="old('avatar', $user->avatar)" />
+
             <x-form.input
                 name="name"
                 label="Name"

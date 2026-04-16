@@ -68,12 +68,14 @@ class AuthController extends Controller
     public function update(Request $request)
     {
         $validated = $request->validate([
-            'name'  => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . Auth::id()],
+            'name'   => ['required', 'string', 'max:255'],
+            'email'  => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . Auth::id()],
+            'avatar' => ['nullable', 'string', 'max:255'],
         ]);
 
         $user = Auth::user();
-        $user->name  = $validated['name'];
+        $user->name   = $validated['name'];
+        $user->avatar = $validated['avatar'];
 
         if ($user->isDirty('email')) {
             $user->email_verified_at = null;

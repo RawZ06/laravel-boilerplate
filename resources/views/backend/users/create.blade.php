@@ -15,6 +15,8 @@
         <form method="POST" action="{{ route('backend.users.store') }}" class="flex flex-col gap-6">
             @csrf
 
+            <x-form.avatar-picker :value="old('avatar')" />
+
             <x-form.input
                 name="name"
                 label="Name"
