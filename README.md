@@ -15,7 +15,7 @@
 <p align="center">
   <img src="https://github.com/RawZ06/laravel-boilerplate/actions/workflows/tests.yml/badge.svg" alt="Build Status">
   <img src="https://github.com/RawZ06/laravel-boilerplate/actions/workflows/docker-check.yml/badge.svg" alt="Docker Status">
-  <img src="https://img.shields.io/github/v/tag/RawZ06/laravel-boilerplate?label=version" alt="Latest Stable Version">
+  <img src="https://img.shields.io/github/v/tag/RawZ06/laravel-boilerplate?label=version&color=blue" alt="Latest Version">
   <img src="https://img.shields.io/badge/License-MIT-green" alt="License">
 </p>
 
