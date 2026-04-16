@@ -47,7 +47,7 @@ class UserController extends Controller
             'email'    => $validated['email'],
             'password' => Hash::make($validated['password']),
             'role'     => $validated['role'],
-            'avatar'   => $validated['avatar'],
+            'avatar'   => $validated['avatar'] ?? null,
         ]);
 
         return redirect()
@@ -93,7 +93,7 @@ class UserController extends Controller
         $user->name   = $validated['name'];
         $user->email  = $validated['email'];
         $user->role   = $validated['role'];
-        $user->avatar = $validated['avatar'];
+        $user->avatar = $validated['avatar'] ?? $user->avatar;
 
         if (!empty($validated['password'])) {
             $user->password = Hash::make($validated['password']);
