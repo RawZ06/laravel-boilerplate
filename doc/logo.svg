@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 140" width="580" height="140">
+    <defs>
+        <linearGradient id="flameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#FF2D20;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+        </linearGradient>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#FF2D20" flood-opacity="0.15"/>
+        </filter>
+    </defs>
+
+    <!-- Icône Laravel stylisée -->
+    <g transform="translate(0, 10)" filter="url(#shadow)">
+        <!-- Hexagone / bouclier -->
+        <polygon
+            points="55,5 95,25 95,75 55,95 15,75 15,25"
+            fill="url(#flameGrad)"
+            rx="4"
+        />
+        <!-- Lettre L blanche -->
+        <text x="32" y="72"
+              font-family="Georgia, 'Times New Roman', serif"
+              font-weight="bold"
+              font-size="62"
+              fill="white"
+              opacity="0.95">L</text>
+    </g>
+
+    <!-- Séparateur vertical élégant -->
+    <rect x="118" y="18" width="1.5" height="100" fill="#FF2D20" opacity="0.3" rx="1"/>
+
+    <!-- Groupe texte principal -->
+    <g transform="translate(135, 0)">
+
+        <!-- "Laravel" -->
+        <text x="0" y="78"
+              font-family="Georgia, 'Times New Roman', serif"
+              font-weight="bold"
+              font-size="54"
+              fill="#1a1a1a"
+              letter-spacing="1">Laravel</text>
+
+        <!-- Trait rouge sous Laravel, au-dessus de Boilerplate -->
+        <rect x="2" y="86" width="285" height="2" fill="#FF2D20" opacity="0.8" rx="1"/>
+
+        <!-- "boilerplate" -->
+        <text x="4" y="112"
+              font-family="'Arial', 'Helvetica', sans-serif"
+              font-size="15"
+              fill="#FF2D20"
+              letter-spacing="9"
+              font-weight="400">BOILERPLATE</text>
+    </g>
+</svg>
