@@ -12,15 +12,15 @@ class Autocomplete extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public ?string $name        = null,
-        public ?string $label       = null,
+        public ?string $name = null,
+        public ?string $label = null,
         public ?string $placeholder = 'Rechercher...',
-        public ?string $hint        = null,
-        public ?string $error       = null,
-        public array   $options     = [],
-        public ?string $selected    = null,
-        public bool    $disabled    = false,
-        public bool    $required    = false,
+        public ?string $hint = null,
+        public ?string $error = null,
+        public array $options = [],
+        public ?string $selected = null,
+        public bool $disabled = false,
+        public bool $required = false,
     ) {}
 
     /**

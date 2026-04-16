@@ -5,28 +5,29 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Auth;
 use Hash;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password as PasswordRule;
-use Illuminate\Auth\Events\Registered;
 
 class AuthController extends Controller
 {
     public function login(Request $request)
     {
         $validated = $request->validate([
-            'email'    => ['required', 'email'],
+            'email' => ['required', 'email'],
             'password' => ['required'],
             'remember' => ['nullable', 'boolean'],
         ]);
 
         if (Auth::attempt([
-            'email'    => $validated['email'],
+            'email' => $validated['email'],
             'password' => $validated['password'],
         ], $request->boolean('remember'))) {
             $request->session()->regenerate();
+
             return redirect()->intended('/');
         }
 
@@ -47,14 +48,14 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $validated = $request->validate([
-            'name'     => ['required', 'string', 'max:255'],
-            'email'    => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
         $user = User::create([
-            'name'     => $validated['name'],
-            'email'    => $validated['email'],
+            'name' => $validated['name'],
+            'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
         ]);
 
@@ -68,13 +69,13 @@ class AuthController extends Controller
     public function update(Request $request)
     {
         $validated = $request->validate([
-            'name'   => ['required', 'string', 'max:255'],
-            'email'  => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . Auth::id()],
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.Auth::id()],
             'avatar' => ['nullable', 'string', 'max:255'],
         ]);
 
         $user = Auth::user();
-        $user->name   = $validated['name'];
+        $user->name = $validated['name'];
         $user->avatar = $validated['avatar'];
         $user->email = $validated['email'];
 
@@ -93,12 +94,12 @@ class AuthController extends Controller
     {
         $validated = $request->validateWithBag('updatePassword', [
             'current_password' => ['required', 'string'],
-            'password'         => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
         $user = Auth::user();
 
-        if (!Hash::check($validated['current_password'], $user->password)) {
+        if (! Hash::check($validated['current_password'], $user->password)) {
             return back()->withErrors([
                 'current_password' => 'The current password is incorrect.',
             ], 'updatePassword');
@@ -118,13 +119,14 @@ class AuthController extends Controller
 
         $user = Auth::user();
 
-        if (!Hash::check($validated['confirmSessionPassword'], $user->password)) {
+        if (! Hash::check($validated['confirmSessionPassword'], $user->password)) {
             return back()->withErrors([
                 'confirmSessionPassword' => 'The current password is incorrect.',
             ], 'logoutOthers');
         }
 
         Auth::logoutOtherDevices($validated['confirmSessionPassword']);
+
         return back()->with('success', 'Logged out from all other devices successfully');
     }
 
@@ -136,7 +138,7 @@ class AuthController extends Controller
 
         $user = Auth::user();
 
-        if (!Hash::check($validated['confirmDeletePassword'], $user->password)) {
+        if (! Hash::check($validated['confirmDeletePassword'], $user->password)) {
             return back()->withErrors([
                 'confirmDeletePassword' => 'The current password is incorrect.',
             ], 'deleteAccount');
@@ -186,7 +188,7 @@ class AuthController extends Controller
             $request->only('email', 'password', 'password_confirmation', 'token'),
             function ($user, $password) {
                 $user->forceFill([
-                    'password' => Hash::make($password)
+                    'password' => Hash::make($password),
                 ])->setRememberToken(Str::random(60));
 
                 $user->save();

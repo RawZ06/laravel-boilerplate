@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Models\User;
 use App\Models\Audit;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -154,7 +154,7 @@ class AuditTest extends TestCase
         $response->assertStatus(200);
         // Verify that the link to the deleted user is not present for the deleted event
         // Note: the ID itself will be present, but not wrapped in an <a> tag with the route
-        $response->assertDontSee('href="' . route('backend.users.show', $userId) . '"');
+        $response->assertDontSee('href="'.route('backend.users.show', $userId).'"');
     }
 
     public function test_audit_ignores_non_auditable_fields(): void

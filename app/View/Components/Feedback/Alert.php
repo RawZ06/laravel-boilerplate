@@ -17,7 +17,6 @@ class Alert extends Component
         public bool $dismissible = false,
     ) {}
 
-
     /**
      * Get the view / contents that represent the component.
      */

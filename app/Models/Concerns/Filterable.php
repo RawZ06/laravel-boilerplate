@@ -21,7 +21,7 @@ trait Filterable
         $prefix = $tableIdPrefix ? "{$tableIdPrefix}_search_" : 'search_';
 
         foreach ($filters as $key => $value) {
-            if (empty($value) || !Str::startsWith($key, $prefix)) {
+            if (empty($value) || ! Str::startsWith($key, $prefix)) {
                 continue;
             }
 
@@ -29,7 +29,7 @@ trait Filterable
 
             $this->isExactColumn($column)
                 ? $query->where($column, $value)
-                : $query->whereRaw("LOWER({$column}) LIKE ?", ['%' . strtolower($value) . '%']);
+                : $query->whereRaw("LOWER({$column}) LIKE ?", ['%'.strtolower($value).'%']);
         }
     }
 
@@ -47,14 +47,14 @@ trait Filterable
 
         $query->where(function (Builder $q) use ($filters, $searchKey, $searchable) {
             foreach ($searchable as $column) {
-                $q->orWhereRaw("LOWER({$column}) LIKE ?", ['%' . strtolower($filters[$searchKey]) . '%']);
+                $q->orWhereRaw("LOWER({$column}) LIKE ?", ['%'.strtolower($filters[$searchKey]).'%']);
             }
         });
     }
 
     private function applySelectFilters(Builder $query, array $filters): void
     {
-        if (empty($filters['filter']) || !is_array($filters['filter'])) {
+        if (empty($filters['filter']) || ! is_array($filters['filter'])) {
             return;
         }
 
@@ -65,7 +65,7 @@ trait Filterable
 
             $this->isExactColumn($column)
                 ? $query->where($column, $value)
-                : $query->whereRaw("LOWER({$column}) LIKE ?", ['%' . strtolower($value) . '%']);
+                : $query->whereRaw("LOWER({$column}) LIKE ?", ['%'.strtolower($value).'%']);
         }
     }
 

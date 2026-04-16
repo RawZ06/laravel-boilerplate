@@ -15,7 +15,6 @@ class Breadcrumb extends Component
         public array $items = [],
     ) {}
 
-
     /**
      * Get the view / contents that represent the component.
      */

@@ -12,16 +12,16 @@ class TextArea extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public ?string $name        = null,
-        public ?string $label       = null,
+        public ?string $name = null,
+        public ?string $label = null,
         public ?string $placeholder = null,
-        public ?string $value       = null,
-        public ?string $hint        = null,
-        public ?string $error       = null,
-        public bool    $disabled    = false,
-        public bool    $required    = false,
-        public int     $rows        = 4,
-        public bool    $resize      = true,
+        public ?string $value = null,
+        public ?string $hint = null,
+        public ?string $error = null,
+        public bool $disabled = false,
+        public bool $required = false,
+        public int $rows = 4,
+        public bool $resize = true,
     ) {}
 
     /**

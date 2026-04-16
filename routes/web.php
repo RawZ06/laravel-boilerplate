@@ -8,8 +8,8 @@ Route::group(['as' => 'frontend.'], function () {
 });
 
 Route::group(['as' => 'auth.'], function () {
-    Route::get('login', fn() => view('auth.login'))->name('index');
-    Route::get('register', fn() => view('auth.register'))->name('register.index');
+    Route::get('login', fn () => view('auth.login'))->name('index');
+    Route::get('register', fn () => view('auth.register'))->name('register.index');
     Route::post('register', [AuthController::class, 'register'])->name('register');
     Route::post('login', [AuthController::class, 'login'])->name('login');
 
@@ -21,7 +21,7 @@ Route::group(['as' => 'auth.'], function () {
     Route::post('reset-password', [AuthController::class, 'resetPasswordStore'])->name('password.update');
 
     Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth']], function () {
-        Route::get('', fn() => view('auth.profile'))->name('index');
+        Route::get('', fn () => view('auth.profile'))->name('index');
         Route::patch('', [AuthController::class, 'update'])->name('update');
         Route::patch('password', [AuthController::class, 'password'])->name('password');
         Route::post('logout-others', [AuthController::class, 'logoutOthers'])->name('logout-others');

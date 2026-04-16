@@ -1,11 +1,9 @@
 <?php
 
-if (!function_exists('includeFilesInFolder')) {
+if (! function_exists('includeFilesInFolder')) {
     /**
      * Loops through a folder and requires all PHP files
      * Searches subdirectories as well.
-     *
-     * @param $folder
      */
     function includeFilesInFolder($folder): void
     {
@@ -14,7 +12,7 @@ if (!function_exists('includeFilesInFolder')) {
             $it = new RecursiveIteratorIterator($rdi);
 
             while ($it->valid()) {
-                if (!$it->isDot() && $it->isFile() && $it->isReadable() && $it->current()->getExtension() === 'php') {
+                if (! $it->isDot() && $it->isFile() && $it->isReadable() && $it->current()->getExtension() === 'php') {
                     require $it->key();
                 }
 
@@ -26,23 +24,15 @@ if (!function_exists('includeFilesInFolder')) {
     }
 }
 
-if (!function_exists('includeRouteFiles')) {
+if (! function_exists('includeRouteFiles')) {
 
-    /**
-     * @param $folder
-     */
     function includeRouteFiles($folder): void
     {
         includeFilesInFolder($folder);
     }
 }
 
-if (!function_exists('image')) {
-    /**
-     * @param string $image
-     * @param int $quality
-     * @return string
-     */
+if (! function_exists('image')) {
     function image(string $image, int $quality = 100): string
     {
         return config('image-api.host').'/api/file/'.$image.'?quality='.$quality;

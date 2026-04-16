@@ -3,9 +3,9 @@
 namespace App\View\Components\Table;
 
 use Closure;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 class Pagination extends Component
 {

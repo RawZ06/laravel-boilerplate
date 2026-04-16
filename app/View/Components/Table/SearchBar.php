@@ -12,9 +12,9 @@ class SearchBar extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public string  $name        = 'q',
+        public string $name = 'q',
         public ?string $placeholder = 'Search…',
-        public ?string $value       = null,
+        public ?string $value = null,
     ) {
         $this->value = $value ?? request($this->name, '');
     }

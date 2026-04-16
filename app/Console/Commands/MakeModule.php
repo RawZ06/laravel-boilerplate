@@ -38,13 +38,13 @@ class MakeModule extends Command
         $lower = strtolower($name);
         $plural = Str::plural($lower);
 
-        $path = app_path("Http/Controllers/Backend");
+        $path = app_path('Http/Controllers/Backend');
 
-        if (!is_dir($path)) {
+        if (! is_dir($path)) {
             mkdir($path, 0755, true);
         }
 
-        $stub = file_get_contents(base_path("stubs/controller.stub"));
+        $stub = file_get_contents(base_path('stubs/controller.stub'));
 
         $stub = str_replace(
             ['{{ module }}', '{{ Module }}', '{{ modules }}'],
@@ -65,7 +65,7 @@ class MakeModule extends Command
         $path = resource_path("views/backend/{$plural}");
 
         // Create directory
-        if (!is_dir($path)) {
+        if (! is_dir($path)) {
             mkdir($path, 0755, true);
         }
 
@@ -92,6 +92,6 @@ class MakeModule extends Command
         $route = "\nRoute::resource('{$plural}', \\App\\Http\\Controllers\\Backend\\{$name}Controller::class);";
 
         file_put_contents(base_path('routes/backend/index.php'), $route, FILE_APPEND);
-        $this->components->task("Appending resource route to [routes/backend/index.php]");
+        $this->components->task('Appending resource route to [routes/backend/index.php]');
     }
 }

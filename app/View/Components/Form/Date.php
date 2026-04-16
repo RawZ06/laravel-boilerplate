@@ -12,15 +12,15 @@ class Date extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public ?string $name     = null,
-        public ?string $label    = null,
-        public ?string $hint     = null,
-        public ?string $error    = null,
-        public ?string $value    = null,
-        public ?string $min      = null,
-        public ?string $max      = null,
-        public bool    $disabled = false,
-        public bool    $required = false,
+        public ?string $name = null,
+        public ?string $label = null,
+        public ?string $hint = null,
+        public ?string $error = null,
+        public ?string $value = null,
+        public ?string $min = null,
+        public ?string $max = null,
+        public bool $disabled = false,
+        public bool $required = false,
     ) {}
 
     /**

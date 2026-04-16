@@ -12,13 +12,12 @@ class Field extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public ?string $label    = null,
-        public ?string $hint     = null,
-        public ?string $error    = null,
-        public bool    $required = false,
-        public ?string $name     = null,
+        public ?string $label = null,
+        public ?string $hint = null,
+        public ?string $error = null,
+        public bool $required = false,
+        public ?string $name = null,
     ) {}
-
 
     /**
      * Get the view / contents that represent the component.

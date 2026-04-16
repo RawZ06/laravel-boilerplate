@@ -3,58 +3,65 @@
 namespace App\View\Components\Table;
 
 use Closure;
-use Illuminate\Contracts\View\View;
-use Illuminate\View\Component;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
+use Illuminate\View\Component;
 
 class Table extends Component
 {
     public Collection $rows;
+
     public bool $isPaginated;
+
     public mixed $paginator;
+
     public array $columns;
+
     public string $currentSort;
+
     public string $currentDir;
 
     public function __construct(
-        mixed         $rows,
-        array         $columns      = [],
-        public bool   $striped      = false,
-        public string $id           = 'table',
+        mixed $rows,
+        array $columns = [],
+        public bool $striped = false,
+        public string $id = 'table',
         public ?string $emptyMessage = 'No results found.',
     ) {
         $this->isPaginated = $rows instanceof LengthAwarePaginator;
-        $this->paginator   = $this->isPaginated ? $rows : null;
-        $this->rows        = $this->isPaginated ? collect($rows->items()) : collect($rows);
+        $this->paginator = $this->isPaginated ? $rows : null;
+        $this->rows = $this->isPaginated ? collect($rows->items()) : collect($rows);
 
         // Sorting prefixed by id to avoid synchronization between tables
         $this->currentSort = request("{$id}_sort", '');
-        $this->currentDir  = request("{$id}_dir", 'asc');
+        $this->currentDir = request("{$id}_dir", 'asc');
 
         $this->columns = $this->resolveColumns($columns);
     }
 
     protected function resolveColumns(array $columns): array
     {
-        if (!empty($columns)) {
-            return array_map(fn($col) => array_merge([
-                'key'        => '',
-                'label'      => '',
-                'sortable'   => false,
+        if (! empty($columns)) {
+            return array_map(fn ($col) => array_merge([
+                'key' => '',
+                'label' => '',
+                'sortable' => false,
                 'searchable' => false,
             ], $col), $columns);
         }
 
         $first = $this->rows->first();
-        if (!$first) return [];
+        if (! $first) {
+            return [];
+        }
 
         $keys = is_array($first) ? array_keys($first) : array_keys($first->getAttributes());
 
-        return array_map(fn($key) => [
-            'key'        => $key,
-            'label'      => ucfirst(str_replace('_', ' ', $key)),
-            'sortable'   => false,
+        return array_map(fn ($key) => [
+            'key' => $key,
+            'label' => ucfirst(str_replace('_', ' ', $key)),
+            'sortable' => false,
             'searchable' => false,
         ], $keys);
     }
@@ -65,8 +72,8 @@ class Table extends Component
 
         return request()->fullUrlWithQuery([
             "{$this->id}_sort" => $key,
-            "{$this->id}_dir"  => $dir,
-            'page'             => 1,
+            "{$this->id}_dir" => $dir,
+            'page' => 1,
         ]);
     }
 

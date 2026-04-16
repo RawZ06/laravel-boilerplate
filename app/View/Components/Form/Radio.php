@@ -12,13 +12,13 @@ class Radio extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public ?string $name     = null,
-        public ?string $label    = null,
-        public ?string $hint     = null,
-        public ?string $error    = null,
-        public bool    $checked  = false,
-        public bool    $disabled = false,
-        public string  $value    = '1',
+        public ?string $name = null,
+        public ?string $label = null,
+        public ?string $hint = null,
+        public ?string $error = null,
+        public bool $checked = false,
+        public bool $disabled = false,
+        public string $value = '1',
     ) {}
 
     /**

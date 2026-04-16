@@ -35,19 +35,19 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name'                  => ['required', 'string', 'max:255'],
-            'email'                 => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password'              => ['required', 'string', 'min:8', 'confirmed'],
-            'role'                  => ['required', 'string', 'in:user,admin'],
-            'avatar'                => ['nullable', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'role' => ['required', 'string', 'in:user,admin'],
+            'avatar' => ['nullable', 'string', 'max:255'],
         ]);
 
         User::create([
-            'name'     => $validated['name'],
-            'email'    => $validated['email'],
+            'name' => $validated['name'],
+            'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
-            'role'     => $validated['role'],
-            'avatar'   => $validated['avatar'] ?? null,
+            'role' => $validated['role'],
+            'avatar' => $validated['avatar'] ?? null,
         ]);
 
         return redirect()
@@ -83,19 +83,19 @@ class UserController extends Controller
         $user = User::findOrFail($id);
 
         $validated = $request->validate([
-            'name'     => ['required', 'string', 'max:255'],
-            'email'    => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $user->id],
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$user->id],
             'password' => ['nullable', 'string', 'min:8', 'confirmed'],
-            'role'     => ['required', 'string', 'in:user,admin'],
-            'avatar'   => ['nullable', 'string', 'max:255'],
+            'role' => ['required', 'string', 'in:user,admin'],
+            'avatar' => ['nullable', 'string', 'max:255'],
         ]);
 
-        $user->name   = $validated['name'];
-        $user->email  = $validated['email'];
-        $user->role   = $validated['role'];
+        $user->name = $validated['name'];
+        $user->email = $validated['email'];
+        $user->role = $validated['role'];
         $user->avatar = $validated['avatar'] ?? $user->avatar;
 
-        if (!empty($validated['password'])) {
+        if (! empty($validated['password'])) {
             $user->password = Hash::make($validated['password']);
         }
 

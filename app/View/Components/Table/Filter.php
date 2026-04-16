@@ -12,9 +12,9 @@ class Filter extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public string  $name,
-        public array   $options,
-        public ?string $label       = null,
+        public string $name,
+        public array $options,
+        public ?string $label = null,
         public ?string $placeholder = 'Tous',
     ) {
         $this->currentValue = request("filter.{$this->name}", '');
