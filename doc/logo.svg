@@ -1,54 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 140" width="580" height="140">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="580px" height="185px" viewBox="0 0 580 185" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>logo</title>
     <defs>
-        <linearGradient id="flameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#FF2D20;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
-        </linearGradient>
-        <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-            <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#FF2D20" flood-opacity="0.15"/>
-        </filter>
+        <path d="M0,0 L580,0 L580,180.143 L0,180.143 L0,0 Z" id="path-1"></path>
     </defs>
-
-    <!-- Icône Laravel stylisée -->
-    <g transform="translate(0, 10)" filter="url(#shadow)">
-        <!-- Hexagone / bouclier -->
-        <polygon
-            points="55,5 95,25 95,75 55,95 15,75 15,25"
-            fill="url(#flameGrad)"
-            rx="4"
-        />
-        <!-- Lettre L blanche -->
-        <text x="32" y="72"
-              font-family="Georgia, 'Times New Roman', serif"
-              font-weight="bold"
-              font-size="62"
-              fill="white"
-              opacity="0.95">L</text>
-    </g>
-
-    <!-- Séparateur vertical élégant -->
-    <rect x="118" y="18" width="1.5" height="100" fill="#FF2D20" opacity="0.3" rx="1"/>
-
-    <!-- Groupe texte principal -->
-    <g transform="translate(135, 0)">
-
-        <!-- "Laravel" -->
-        <text x="0" y="78"
-              font-family="Georgia, 'Times New Roman', serif"
-              font-weight="bold"
-              font-size="54"
-              fill="#1a1a1a"
-              letter-spacing="1">Laravel</text>
-
-        <!-- Trait rouge sous Laravel, au-dessus de Boilerplate -->
-        <rect x="2" y="86" width="285" height="2" fill="#FF2D20" opacity="0.8" rx="1"/>
-
-        <!-- "boilerplate" -->
-        <text x="4" y="112"
-              font-family="'Arial', 'Helvetica', sans-serif"
-              font-size="15"
-              fill="#FF2D20"
-              letter-spacing="9"
-              font-weight="400">BOILERPLATE</text>
+    <g id="logo" stroke="none" fill="none" fill-rule="evenodd" stroke-width="1">
+        <g id="Stack" transform="translate(0, 2.2019)" xlink:href="#path-1">
+            <g id="Name" transform="translate(155, 24)">
+                <rect id="Rectangle" fill="#6366F1" opacity="0.3" x="-2.84217094e-14" y="0" width="1.97844828" height="132.142857" rx="0.988636374"></rect>
+                <g id="Group" transform="translate(22.4224, 12.1234)">
+                    <text id="Laravel" fill="#1A1A1A" fill-rule="nonzero" font-family="MicrosoftSansSerif, Microsoft Sans Serif" font-size="71.1818182" font-weight="normal">
+                        <tspan x="0" y="66">Laravel</tspan>
+                    </text>
+                    <rect id="Rectangle" fill="#6366F1" opacity="0.8" x="2.63793103" y="77.7337662" width="375.905172" height="2.64285714" rx="1.31818187"></rect>
+                    <text id="BOILERPLATE" fill="#6366F1" fill-rule="nonzero" font-family="Helvetica" font-size="19.7727273" font-weight="normal">
+                        <tspan x="5.27272727" y="110.954545">BOILERPLATE</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="Icon" transform="translate(30, 42.5714)">
+                <rect id="Rectangle" fill="#6366F1" x="0" y="0" width="95" height="95" rx="12"></rect>
+                <g id="Group" transform="translate(28.8791, 24.5511)" fill="#FFFFFF">
+                    <path d="M28.1636562,0.508464975 C29.1528437,1.22333997 29.5185937,2.52008997 29.0697187,3.65058997 L22.5527187,19.9514025 L34.5809062,19.9514025 C35.7030937,19.9514025 36.7005937,20.6496525 37.0829687,21.70534 C37.4653437,22.7610275 37.1411562,23.9414025 36.2849687,24.6562775 L12.3449687,44.6062775 C11.4056562,45.3876525 10.0673437,45.429215 9.07815617,44.71434 C8.08896867,43.999465 7.72321867,42.702715 8.17209367,41.572215 L14.6890937,25.2714025 L2.66090617,25.2714025 C1.53871867,25.2714025 0.541218666,24.5731525 0.158843666,23.517465 C-0.223531334,22.4617775 0.100656166,21.2814025 0.956843666,20.5665275 L24.8968437,0.616527475 C25.8361562,-0.164847525 27.1744687,-0.206410025 28.1636562,0.508464975 Z" id="Path"></path>
+                </g>
+            </g>
+        </g>
     </g>
 </svg>
