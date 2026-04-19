@@ -12,10 +12,13 @@
 @endphp
 
 <div
-    x-data="{ open: false }"
-    x-on:open-modal.window="if ($event.detail === '{{ $name }}') open = true"
-    x-on:close-modal.window="if ($event.detail === '{{ $name }}') open = false"
+    x-data="{ open: false, detail: {} }"
+    x-on:open-modal.window="if ($event.detail === '{{ $name }}') { open = true; detail = {}; } else if ($event.detail.name === '{{ $name }}') { open = true; detail = $event.detail; }"
+    x-on:close-modal.window="if ($event.detail === '{{ $name }}' || $event.detail.name === '{{ $name }}') open = false"
     x-on:keydown.escape.window="open = false"
+    x-watch="open"
+    x-effect="open ? document.body.classList.add('overflow-hidden') : document.body.classList.remove('overflow-hidden')"
+    {{ $attributes }}
 >
     {{-- Trigger slot --}}
     {{ $trigger ?? '' }}

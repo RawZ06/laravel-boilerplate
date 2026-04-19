@@ -17,7 +17,7 @@
             </x-button>
             @if ($user->id != auth()->user()->id)
                 <x-button variant="danger"
-                          onclick="window.dispatchEvent(new CustomEvent('open-modal', { detail: 'delete-user' }))"
+                          onclick="window.dispatchEvent(new CustomEvent('open-modal', { detail: { name: 'delete-user', action: '{{ route('backend.users.destroy', $user->id) }}', id: '{{ $user->id }}' } }))"
                           icon="fa-solid fa-trash">Delete User
                 </x-button>
             @endif
@@ -102,4 +102,33 @@
             </div>
         </form>
     </div>
+
+    <x-overlay.modal name="delete-user">
+        <x-slot:header>
+            <p class="text-sm font-semibold text-gray-800 dark:text-slate-200">Delete element</p>
+        </x-slot:header>
+
+        <div class="flex flex-col gap-3">
+            <div
+                class="flex items-center justify-center w-12 h-12 rounded-full bg-red-50 dark:bg-rose-500/10 mx-auto">
+                <i class="fa-solid fa-trash text-red-500 dark:text-rose-400"></i>
+            </div>
+            <p class="text-sm text-gray-600 dark:text-slate-400 text-center">
+                This action is irreversible. Are you sure you want to delete this element <span x-show="detail.id" x-text="'#' + detail.id"></span>?
+            </p>
+        </div>
+
+        <x-slot:footer>
+            <x-button variant="ghost"
+                      onclick="window.dispatchEvent(new CustomEvent('close-modal', { detail: 'delete-user' }))">
+                Cancel
+            </x-button>
+            <form :action="detail.action || '{{ route('backend.users.destroy', $user->id) }}'"
+                  onsubmit="currentModal = null" method="POST">
+                @csrf
+                @method('DELETE')
+                <x-button type="submit" variant="danger">Delete</x-button>
+            </form>
+        </x-slot:footer>
+    </x-overlay.modal>
 @endsection
