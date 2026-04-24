@@ -127,8 +127,7 @@
                     <x-overlay.dropdown align="right">
                         <x-slot:trigger>
                             <button class="flex flex-row items-center px-4 py-2 text-gray-800 dark:text-gray-200 h-full">
-                                <img class="w-8 h-8 rounded-full bg-gray-300 dark:bg-gray-700"
-                                     src="https://api.dicebear.com/7.x/adventurer/svg?seed=test" alt="User avatar">
+                                <x-misc.avatar src="{{ auth()->user()->avatar }}"></x-misc.avatar>
                                 <span class="ml-2 text-sm">
                                     {{ auth()->user()->name }}
                                 </span>

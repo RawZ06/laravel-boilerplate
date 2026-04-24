@@ -25,8 +25,7 @@
 
         <div class="flex flex-col gap-8">
             <div class="flex items-center gap-4">
-                <img class="w-20 h-20 rounded-full bg-slate-200 dark:bg-slate-800 object-cover border-2 border-indigo-500"
-                     src="{{ $user->avatar ?? 'https://api.dicebear.com/7.x/adventurer/svg?seed=' . $user->name }}" alt="User avatar">
+                <x-misc.avatar src="{{ $user->avatar }}"></x-misc.avatar>
                 <div class="flex flex-col">
                     <span class="text-sm font-bold uppercase tracking-wide">Avatar</span>
                     <span class="text-xs text-slate-500">{{ $user->avatar ? 'Custom' : 'Generated' }}</span>

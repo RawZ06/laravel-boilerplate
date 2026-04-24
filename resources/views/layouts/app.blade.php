@@ -55,9 +55,7 @@
                         <x-overlay.dropdown align="right">
                             <x-slot:trigger>
                                 <button class="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                    <img class="w-7 h-7 rounded-full bg-gray-300"
-                                         src="https://api.dicebear.com/7.x/adventurer/svg?seed={{ auth()->user()->name }}"
-                                         alt="Avatar">
+                                    <x-misc.avatar src="{{ auth()->user()->avatar }}"></x-misc.avatar>
                                     <span>{{ auth()->user()->name }}</span>
                                     <i class="fa-solid fa-chevron-down text-xs text-slate-400"></i>
                                 </button>
